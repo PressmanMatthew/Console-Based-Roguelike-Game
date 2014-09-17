@@ -18,6 +18,7 @@ namespace PressmanM_HW2
             const int stepsNeeded = 16;
             int stepsTaken = 0;
             Level lvl = new Level("outside.png");
+            Tile grassTile = new Tile("grasstile.png");
             int originalBufferWidth = Console.BufferWidth;
             int originalBufferHeight = Console.BufferHeight;
             int windowPositionLeft = 100;
@@ -25,6 +26,8 @@ namespace PressmanM_HW2
             int moveSpeed = 5;
             int vertBound = 179;
             int horBound = 21;
+            int cursorLeftPos;
+            int cursorUpPos;
             
 
             ////////
@@ -43,7 +46,19 @@ namespace PressmanM_HW2
             while (true)
             {
                 ConsoleKeyInfo inputKey = Console.ReadKey(true);
-                
+                cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
+                cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+                Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+                for (int i = 0; i < 5; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+
+                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                        int colorNum = Pixel.ColorCheck(grassTile.GetPixel(j, i));
+                        Pixel.ColorCodeReturn(colorNum);
+                    }
+                }
                 Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                 if (inputKey.Key == ConsoleKey.A)
                 {
@@ -55,6 +70,19 @@ namespace PressmanM_HW2
                     {
                         windowPositionLeft -= moveSpeed;
                         Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
+                    }
+                    int colorNum = lvl.tiles[windowPositionLeft/5, windowPositionUp/5];
+                    cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
+                    cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+                    Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+                    for (int i = 0; i < 5; i++)
+                    {
+                        for (int j = 0; j < 5; j++)
+                        {
+
+                            Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                            BlackPixel();
+                        }
                     }
                 }
                 else if (inputKey.Key == ConsoleKey.D)
@@ -68,6 +96,19 @@ namespace PressmanM_HW2
                         windowPositionLeft += moveSpeed;
                         Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                     }
+                    cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
+                    cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+                    Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+                    BlackPixel();
+                    for (int i = 0; i < 5; i++)
+                    {
+                        for (int j = 0; j < 5; j++)
+                        {
+
+                            Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                            BlackPixel();
+                        }
+                    }
                 }
                 else if (inputKey.Key == ConsoleKey.W)
                 {
@@ -79,6 +120,19 @@ namespace PressmanM_HW2
                     {
                         windowPositionUp -= moveSpeed;
                         Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
+                    }
+                    cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
+                    cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+                    Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+                    BlackPixel();
+                    for (int i = 0; i < 5; i++)
+                    {
+                        for (int j = 0; j < 5; j++)
+                        {
+
+                            Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                            BlackPixel();
+                        }
                     }
                 }
                 else if (inputKey.Key == ConsoleKey.S)
@@ -92,11 +146,24 @@ namespace PressmanM_HW2
                         windowPositionUp += moveSpeed;
                         Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                     }
+                    cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
+                    cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+                    Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+                    BlackPixel();
+                    for (int i = 0; i < 5; i++)
+                    {
+                        for (int j = 0; j < 5; j++)
+                        {
+
+                            Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                            BlackPixel();
+                        }
+                    }
                 }
                 else if (inputKey.Key == ConsoleKey.Spacebar)
                 {
-                    int cursorLeftPos = 40 + (moveSpeed * 4);
-                    int cursorUpPos = 20 + (moveSpeed * 4);
+                    cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
+                    cursorUpPos = Console.WindowTop + (moveSpeed * 4);
                     Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
                     BlackPixel();
                     for (int i = 0; i < 5; i++)
@@ -114,6 +181,7 @@ namespace PressmanM_HW2
                     windowPositionLeft = 100;
                     Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                 }
+
             }
             //GrassTile();
 

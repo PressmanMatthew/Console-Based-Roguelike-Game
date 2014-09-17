@@ -21,7 +21,7 @@ namespace PressmanM_HW1
         int colorNum;
         int levelPixelsNum = (levelSize * tileLength);
         Color[,] pixels = new Color[tileLength, tileLength];
-        int[,] tiles = new int[levelSize, levelSize];
+        public int[,] tiles = new int[levelSize, levelSize];
         int[,] grassPixels = new int[tileLength, tileLength];
         int[,] pondPixels = new int[tileLength, tileLength];
 

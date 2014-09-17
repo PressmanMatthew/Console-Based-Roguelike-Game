@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Drawing;
-using PressmanM_HW1;
 
-namespace PressmanM_HW2
+namespace PressmanM_HW1
 {
     class Program
     {
@@ -85,135 +84,115 @@ namespace PressmanM_HW2
                 //Detect if movement is being attempted
                 if (inputKey.Key == ConsoleKey.A | inputKey.Key == ConsoleKey.D | inputKey.Key == ConsoleKey.W | inputKey.Key == ConsoleKey.S)
                 {
-                    Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
-                    if (lvl.tiles[(cursorLeftPos / 5),(cursorUpPos / 5)] == 2)
-                    {
-                        for (int i = 0; i < 5; i++)
-                        {
-                            for (int j = 0; j < 5; j++)
-                            {
-                                Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
-                                colorNum = Pixel.ColorCheck(pondTile.GetPixel(j, i));
-                                Pixel.ColorCodeReturn(colorNum);
-                            }
-                        }
-                        Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-                    }
-                    else if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
-                    {
-                        for (int i = 0; i < 5; i++)
-                        {
-                            for (int j = 0; j < 5; j++)
-                            {
-                                Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
-                                colorNum = Pixel.ColorCheck(grassTile.GetPixel(j, i));
-                                Pixel.ColorCodeReturn(colorNum);
-                            }
-                        }
-                        Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-                    }
 
-                    Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
-
-                    switch(inputKey.Key){
+                    switch (inputKey.Key)
+                    {
                         case ConsoleKey.A:
-                            if (windowPositionLeft < lowBound)
+                            if ((windowPositionLeft - (moveSpeed * 2)) < lowBound)
                             {
 
                             }
                             else
                             {
+                                lvl.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
                                 windowPositionLeft -= moveSpeed;
                                 Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
-                            }
-                            colorNum = lvl.tiles[windowPositionLeft / 5, windowPositionUp / 5];
-                            cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
-                            cursorUpPos = Console.WindowTop + (moveSpeed * 4);
-                            Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-                            for (int i = 0; i < 5; i++)
-                            {
-                                for (int j = 0; j < 5; j++)
+                                cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
+                                cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+                                Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+                                BlackPixel();
+                                for (int i = 0; i < 5; i++)
                                 {
+                                    for (int j = 0; j < 5; j++)
+                                    {
 
-                                    Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
-                                    BlackPixel();
+                                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                                        BlackPixel();
+                                    }
                                 }
                             }
                             break;
                         case ConsoleKey.D:
-                            if (windowPositionLeft > highBound - 45)
+                            if ((windowPositionLeft + (moveSpeed * 2)) > highBound - 45)
                             {
 
                             }
                             else
                             {
+                                lvl.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
+                                Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                                 windowPositionLeft += moveSpeed;
                                 Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
-                            }
-                            cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
-                            cursorUpPos = Console.WindowTop + (moveSpeed * 4);
-                            Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-                            BlackPixel();
-                            for (int i = 0; i < 5; i++)
-                            {
-                                for (int j = 0; j < 5; j++)
+                                cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
+                                cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+                                Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+                                BlackPixel();
+                                for (int i = 0; i < 5; i++)
                                 {
+                                    for (int j = 0; j < 5; j++)
+                                    {
 
-                                    Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
-                                    BlackPixel();
+                                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                                        BlackPixel();
+                                    }
                                 }
                             }
                             break;
                         case ConsoleKey.W:
-                            if (windowPositionUp < lowBound)
+                            if ((windowPositionUp - (moveSpeed * 2)) < lowBound)
                             {
 
                             }
                             else
                             {
+                                lvl.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
+                                Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                                 windowPositionUp -= moveSpeed;
                                 Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
-                            }
-                            cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
-                            cursorUpPos = Console.WindowTop + (moveSpeed * 4);
-                            Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-                            BlackPixel();
-                            for (int i = 0; i < 5; i++)
-                            {
-                                for (int j = 0; j < 5; j++)
+                                cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
+                                cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+                                Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+                                BlackPixel();
+                                for (int i = 0; i < 5; i++)
                                 {
+                                    for (int j = 0; j < 5; j++)
+                                    {
 
-                                    Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
-                                    BlackPixel();
+                                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                                        BlackPixel();
+                                    }
                                 }
                             }
                             break;
                         case ConsoleKey.S:
-                            if (windowPositionUp > highBound)
+                            if ((windowPositionUp + (moveSpeed * 2)) > highBound)
                             {
 
                             }
                             else
                             {
+                                lvl.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
+                                Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                                 windowPositionUp += moveSpeed;
                                 Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
-                            }
-                            cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
-                            cursorUpPos = Console.WindowTop + (moveSpeed * 4);
-                            Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-                            BlackPixel();
-                            for (int i = 0; i < 5; i++)
-                            {
-                                for (int j = 0; j < 5; j++)
+                                cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
+                                cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+                                Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+                                BlackPixel();
+                                for (int i = 0; i < 5; i++)
                                 {
+                                    for (int j = 0; j < 5; j++)
+                                    {
 
-                                    Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
-                                    BlackPixel();
+                                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                                        BlackPixel();
+                                    }
                                 }
                             }
                             break;
                     }
                 }
+
                 else if (inputKey.Key == ConsoleKey.D1 | inputKey.Key == ConsoleKey.D2)
                 {
                     switch (inputKey.Key)
@@ -228,7 +207,8 @@ namespace PressmanM_HW2
                 }
                 else if (inputKey.Key == ConsoleKey.LeftArrow | inputKey.Key == ConsoleKey.RightArrow | inputKey.Key == ConsoleKey.UpArrow | inputKey.Key == ConsoleKey.DownArrow)
                 {
-                    switch(inputKey.Key){
+                    switch (inputKey.Key)
+                    {
                         case ConsoleKey.UpArrow:
 
                             //Change the cursor position to get ready to draw an attack

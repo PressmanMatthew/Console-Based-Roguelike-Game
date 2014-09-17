@@ -16,22 +16,21 @@ namespace PressmanM_HW1
         Color pixel;
         int colorNum;
         String tileName;
-        private int[,] pixels = new int[tileLength,tileLength];
+        private Color[,] pixels = new Color[tileLength,tileLength];
 
         public Tile(String tileFile)
         {
             fullPath = directoryPath + tileFile;
             pixelMap = new Bitmap(fullPath);
-            tileName = tileFile.Replace("tile.png", "");
 
             for (int i = 0; i < tileLength - 1; i++)
             {
                 for (int j = 0; i < tileLength - 1; i++)
                 {
-                    pixel = pixelMap.GetPixel(i, j);
+                    pixel = pixelMap.GetPixel(j, i);
                     colorNum = Pixel.ColorCheck(pixel);
 
-                    pixels[i, j] = colorNum;
+                    pixels[j, i] = pixel;
                 }
             }
         }
@@ -41,16 +40,17 @@ namespace PressmanM_HW1
             return tileLength;
         }
 
-        public int GetPixel(int x, int y)
+        public Color GetPixel(int x, int y)
         {
-            return pixels[x, y];
+            return pixelMap.GetPixel(x, y);
         }
 
-        public void SetPixel(int num, int x, int y)
+        public void SetPixel(Color color, int x, int y)
         {
-            pixels[x, y] = num;
+            pixels[x, y] = color;
         }
-        void GrassTile()
+
+        public void GrassTile()
         {
             String filePath = Environment.CurrentDirectory + @"\..\..\"; //Find the directory with the program and tile in it
             filePath = filePath + "grasstile.png"; //Add the tile picture name
@@ -64,14 +64,14 @@ namespace PressmanM_HW1
             {
                 for (int j = 0; j < tileLength; j++)
                 {
-                    pixel = bit.GetPixel(j, i); // iterate through the different pixel colors
+                    pixel = bit.GetPixel(i, j); // iterate through the different pixel colors
                     colorNum = Pixel.ColorCheck(pixel);
 
                     Pixel.ColorCodeReturn(colorNum);
 
                     if (j == tileLength - 1)
                     {
-                        Pixel.ColorCodeReturn(0); // Makes a new line at the end of each line
+                        Pixel.NextLine(); // Makes a new line at the end of each line
                     }
                 }
             }

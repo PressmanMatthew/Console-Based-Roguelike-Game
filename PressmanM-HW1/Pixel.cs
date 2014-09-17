@@ -290,7 +290,7 @@ namespace PressmanM_HW1
             switch (num)
             {
                 case 0:
-                    CyanPixel();
+                    NextLine();
                     break;
                 case 1:
                     BlackPixel();

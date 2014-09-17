@@ -12,13 +12,15 @@ namespace PressmanM_HW1
         String directoryPath = Environment.CurrentDirectory + @"\..\..\levels\";
         String fullPath;
         Bitmap tileMap;
-        static Tile grassTile = new Tile("grasstile.png");
+        static Tile tile = new Tile("grasstile.png");
+        static GrassTile grass = new GrassTile();
         static Tile pondTile = new Tile("redtile.png");
-        static int tileLength =  grassTile.GetTileLength();
+        static int tileLength =  tile.GetTileLength();
         Color pixel;
-        const int levelSize = 5;
+        const int levelSize = 10;
         int colorNum;
-        int levelPixelsNum = (levelSize - 1) * (tileLength - 1);
+        int levelPixelsNum = (levelSize * tileLength);
+        Color[,] pixels = new Color[tileLength, tileLength];
         int[,] tiles = new int[levelSize, levelSize];
         int[,] grassPixels = new int[tileLength, tileLength];
         int[,] pondPixels = new int[tileLength, tileLength];
@@ -39,14 +41,14 @@ namespace PressmanM_HW1
                 }
             }
 
-            for (int i = 0; i < tileLength - 1; i++)
-            {
-                for (int j = 0; j < tileLength - 1; j++)
-                {
-                    grassPixels[i, j] = grassTile.GetPixel(i, j);
-                    //pondPixels[i, j] = pondTile.GetPixel(i, j);
-                }
-            }
+            //for (int i = 0; i < tileLength - 1; i++)
+            //{
+            //    for (int j = 0; j < tileLength - 1; j++)
+            //    {
+            //        grassPixels[i, j] = tile.GetPixel(i, j);
+            //        pondPixels[i, j] = pondTile.GetPixel(i, j);
+            //    }
+            //}
         }
 
         public void CreateLevel()
@@ -60,18 +62,30 @@ namespace PressmanM_HW1
                     int tilesFinishedj = j / 5;
                     int pixelIterj = j - (tilesFinishedj * 5);
 
+                    //Console.WriteLine(tiles[tilesFinishedj, tilesFinishedi]);
+                    pixel = tile.GetPixel(pixelIterj, pixelIteri);
+                    pixels[pixelIterj, pixelIteri] = pixel;
+                    colorNum = Pixel.ColorCheck(pixel);
+                    grassPixels[pixelIterj, pixelIteri] = colorNum;
+                    //Console.WriteLine(colorNum);
+                    Pixel.ColorCodeReturn(colorNum);
+
                     if (Pixel.GreenColorCheck(tiles[tilesFinishedj, tilesFinishedi]))
                     {
-                        for (int x = 0; x < tileLength; x++)
-                        {
-                            Pixel.ColorCodeReturn(grassTile.GetPixel(x, pixelIteri));
-                        }
+                        //grass.CreateGrassTile();
+                        //pixel = tile.GetPixel(pixelIterj, tilesFinishedi);
+                        //colorNum = Pixel.ColorCheck(pixel);
+                        //Pixel.ColorCodeReturn(colorNum);
+                        //for (int x = 0; x < tileLength; x++)
+                        //{
+                        //    Pixel.ColorCodeReturn(grassTile.GetPixel(x, pixelIteri));
+                        //}
                     }
                     else if (Pixel.RedColorCheck(tiles[tilesFinishedj, tilesFinishedi]))
                     {
                         for (int x = 0; x < tileLength; x++)
                         {
-                            Pixel.ColorCodeReturn(pondTile.GetPixel(x, pixelIteri));
+                            Pixel.ColorCodeReturn(pondPixels[x, pixelIteri]);
                         }
                     }
 

@@ -14,10 +14,10 @@ namespace PressmanM_HW1
         Bitmap tileMap;
         static Tile tile = new Tile("grasstile.png");
         static GrassTile grass = new GrassTile();
-        static Tile pondTile = new Tile("redtile.png");
+        static Tile pondTile = new Tile("pondtile.png");
         static int tileLength =  tile.GetTileLength();
         Color pixel;
-        const int levelSize = 5;
+        const int levelSize = 54;
         int colorNum;
         int levelPixelsNum = (levelSize * tileLength);
         Color[,] pixels = new Color[tileLength, tileLength];
@@ -62,16 +62,17 @@ namespace PressmanM_HW1
                     int tilesFinishedj = j / 5;
                     int pixelIterj = j - (tilesFinishedj * 5);
 
-                    //Console.WriteLine(tiles[tilesFinishedj, tilesFinishedi]);
-                    pixel = tile.GetPixel(pixelIterj, tilesFinishedi);
-                    pixels[pixelIterj, tilesFinishedi] = pixel;
-                    colorNum = Pixel.ColorCheck(pixel);
-                    grassPixels[pixelIterj, tilesFinishedi] = colorNum;
-                    //Console.WriteLine(colorNum);
-                    Pixel.ColorCodeReturn(colorNum);
+                    
 
                     if (Pixel.GreenColorCheck(tiles[tilesFinishedj, tilesFinishedi]))
                     {
+                        //Console.WriteLine(tiles[tilesFinishedj, tilesFinishedi]);
+                        pixel = tile.GetPixel(pixelIterj, pixelIteri);
+                        pixels[pixelIterj, pixelIteri] = pixel;
+                        colorNum = Pixel.ColorCheck(pixel);
+                        grassPixels[pixelIterj, pixelIteri] = colorNum;
+                        //Console.WriteLine(colorNum);
+                        Pixel.ColorCodeReturn(colorNum);
                         //grass.CreateGrassTile();
                         //pixel = tile.GetPixel(pixelIterj, tilesFinishedi);
                         //colorNum = Pixel.ColorCheck(pixel);
@@ -81,12 +82,14 @@ namespace PressmanM_HW1
                         //    Pixel.ColorCodeReturn(grassTile.GetPixel(x, pixelIteri));
                         //}
                     }
-                    else if (Pixel.RedColorCheck(tiles[tilesFinishedj, tilesFinishedi]))
+                    else if (Pixel.BlueColorCheck(tiles[tilesFinishedj, tilesFinishedi]))
                     {
-                        for (int x = 0; x < tileLength; x++)
-                        {
-                            Pixel.ColorCodeReturn(pondPixels[x, pixelIteri]);
-                        }
+                        pixel = pondTile.GetPixel(pixelIterj, pixelIteri);
+                        pixels[pixelIterj, pixelIteri] = pixel;
+                        colorNum = Pixel.ColorCheck(pixel);
+                        pondPixels[pixelIterj, pixelIteri] = colorNum;
+                        //Console.WriteLine(colorNum);
+                        Pixel.ColorCodeReturn(colorNum);
                     }
 
                     if (j == levelPixelsNum - 1)

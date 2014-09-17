@@ -18,83 +18,103 @@ namespace PressmanM_HW2
             const int stepsNeeded = 16;
             int stepsTaken = 0;
             Level lvl = new Level("outside.png");
+            int originalBufferWidth = Console.BufferWidth;
+            int originalBufferHeight = Console.BufferHeight;
+            int windowPositionLeft = 100;
+            int windowPositionUp = 195;
+            int moveSpeed = 5;
+            int vertBound = 179;
+            int horBound = 21;
+            
 
             ////////
             //Init//
             ////////
 
             ClearScreen();
+
+            Console.BufferHeight += 200;
+            Console.BufferWidth += 200;
+            Console.CursorSize = 1;
             lvl.CreateLevel();
-            
-            //First Line
-            GreenPixel();
-            GreenPixel();
-            DarkGreenPixel();
-            GreenPixel();
-            GreenPixel();
-            BlackPixel();
-            GreenPixel();
-            GreenPixel();
-            DarkGreenPixel();
-            GreenPixel();
-            GreenPixel();
-            NextLine();
+            Console.SetWindowSize(84,42);
+            Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
+            Console.CursorVisible = false;
+            while (true)
+            {
+                ConsoleKeyInfo inputKey = Console.ReadKey(true);
+                
+                Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
+                if (inputKey.Key == ConsoleKey.A)
+                {
+                    if (windowPositionLeft < horBound)
+                    {
 
-            //Second Line
-            GreenPixel();
-            GreenPixel();
-            DarkGreenPixel();
-            GreenPixel();
-            GreenPixel();
-            BlackPixel();
-            GreenPixel();
-            GreenPixel();
-            DarkGreenPixel();
-            GreenPixel();
-            GreenPixel();
-            NextLine();
+                    }
+                    else
+                    {
+                        windowPositionLeft -= moveSpeed;
+                        Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
+                    }
+                }
+                else if (inputKey.Key == ConsoleKey.D)
+                {
+                    if (windowPositionLeft > vertBound)
+                    {
 
-            //Third Line
-            DarkGreenPixel();
-            DarkGreenPixel();
-            GreenPixel();
-            DarkGreenPixel();
-            DarkGreenPixel();
-            BlackPixel();
-            DarkGreenPixel();
-            DarkGreenPixel();
-            GreenPixel();
-            DarkGreenPixel();
-            DarkGreenPixel();
-            NextLine();
+                    }
+                    else
+                    {
+                        windowPositionLeft += moveSpeed;
+                        Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
+                    }
+                }
+                else if (inputKey.Key == ConsoleKey.W)
+                {
+                    if (windowPositionUp < horBound)
+                    {
 
-            //Fourth Line
-            GreenPixel();
-            GreenPixel();
-            DarkGreenPixel();
-            GreenPixel();
-            GreenPixel();
-            BlackPixel();
-            GreenPixel();
-            GreenPixel();
-            DarkGreenPixel();
-            GreenPixel();
-            GreenPixel();
-            NextLine();
+                    }
+                    else
+                    {
+                        windowPositionUp -= moveSpeed;
+                        Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
+                    }
+                }
+                else if (inputKey.Key == ConsoleKey.S)
+                {
+                    if (windowPositionUp > vertBound)
+                    {
 
-            //Fifth Line
-            GreenPixel();
-            GreenPixel();
-            DarkGreenPixel();
-            GreenPixel();
-            GreenPixel();
-            BlackPixel();
-            GreenPixel();
-            GreenPixel();
-            DarkGreenPixel();
-            GreenPixel();
-            GreenPixel();
-            NextLine();
+                    }
+                    else
+                    {
+                        windowPositionUp += moveSpeed;
+                        Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
+                    }
+                }
+                else if (inputKey.Key == ConsoleKey.Spacebar)
+                {
+                    int cursorLeftPos = 40 + (moveSpeed * 4);
+                    int cursorUpPos = 20 + (moveSpeed * 4);
+                    Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+                    BlackPixel();
+                    for (int i = 0; i < 5; i++)
+                    {
+                        for (int j = 0; j < 5; j++)
+                        {
+                            
+                            Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                            BlackPixel();
+                        }
+                    }
+                }
+                else
+                {
+                    windowPositionLeft = 100;
+                    Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
+                }
+            }
             //GrassTile();
 
             //Starting storyline for setting

@@ -119,15 +119,23 @@ namespace PressmanM_HW2
             Bitmap bit = new Bitmap(filePath);
             const int tileLength = 5;
             Color pixel;
-            ConsoleColor consolePixel;
             
             for (int i = 0; i < tileLength - 1; i++)
             {
                 for (int j = 0; j < tileLength; j++)
                 {
                     pixel = bit.GetPixel(i, j);
-                    consolePixel = (ConsoleColor) Enum.Parse(typeof(ConsoleColor), pixel.Name);
-                    Console.BackgroundColor = consolePixel;
+                    if (pixel.Equals(Color.FromArgb(0,255,0))) {
+                        GreenPixel();
+                    }
+                    else if (pixel.Equals(Color.FromArgb(0,128,0))) {
+                        DarkGreenPixel();
+                    }
+
+                    if (j == tileLength - 1)
+                    {
+                        NextLine();
+                    }
                 } 
             }
         }

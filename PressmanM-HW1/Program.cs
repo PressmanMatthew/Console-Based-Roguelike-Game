@@ -114,16 +114,20 @@ namespace PressmanM_HW2
         static void GrassTile()
         {
             //String tilePath = System.IO.Path.GetFullPath("grasstile.png");
-            Bitmap bit = new Bitmap(@"E:\School\Game Design and Development 1\PressmanM-HW2 - Extra\PressmanM-HW1\grasstile.png");
+            String filePath = Environment.CurrentDirectory + @"\..\..\";
+            filePath = filePath + "grasstile.png";
+            Bitmap bit = new Bitmap(filePath);
             const int tileLength = 5;
             Color pixel;
+            ConsoleColor consolePixel;
             
             for (int i = 0; i < tileLength - 1; i++)
             {
                 for (int j = 0; j < tileLength; j++)
                 {
                     pixel = bit.GetPixel(i, j);
-                    Console.WriteLine(pixel);
+                    consolePixel = (ConsoleColor) Enum.Parse(typeof(ConsoleColor), pixel.Name);
+                    Console.BackgroundColor = consolePixel;
                 } 
             }
         }

@@ -17,7 +17,7 @@ namespace PressmanM_HW1
         static Tile pondTile = new Tile("pondtile.png");
         static int tileLength =  tile.GetTileLength();
         Color pixel;
-        const int levelSize = 54;
+        const int levelSize = 50;
         int colorNum;
         int levelPixelsNum = (levelSize * tileLength);
         Color[,] pixels = new Color[tileLength, tileLength];
@@ -97,6 +97,40 @@ namespace PressmanM_HW1
                         Pixel.NextLine();
                     }
                 }
+            }
+        }
+
+        public void ReplaceTile(int windowLeftPos, int windowUpPos, int moveSpeed)
+        {
+            int cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
+            int cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+            Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+            Console.SetWindowPosition(windowLeftPos, windowUpPos);
+            if (tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                        colorNum = Pixel.ColorCheck(pondTile.GetPixel(j, i));
+                        Pixel.ColorCodeReturn(colorNum);
+                    }
+                }
+                Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+            }
+            else if (tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                        colorNum = Pixel.ColorCheck(tile.GetPixel(j, i));
+                        Pixel.ColorCodeReturn(colorNum);
+                    }
+                }
+                Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
             }
         }
     }

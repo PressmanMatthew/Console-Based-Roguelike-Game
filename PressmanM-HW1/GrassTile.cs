@@ -9,12 +9,14 @@ namespace PressmanM_HW1
 {
     class GrassTile
     {
+        Tile grassTile = new Tile("grasstile.png");
+        const int tileLength = 5;
+        Color pixel;
+        int colorNum;
+
         public void CreateGrassTile()
         {
-            Tile grassTile = new Tile("grasstile.png");
-            const int tileLength = 5;
-            Color pixel;
-            int colorNum;
+            
 
             //This starts the parsing of the picture pixels into console colors
             for (int i = 0; i < tileLength - 1; i++)
@@ -33,6 +35,16 @@ namespace PressmanM_HW1
                     }
                 }
             }
+        }
+
+        public Color GetPixel(int x, int y)
+        {
+            return grassTile.GetPixel(x, y);
+        }
+
+        public void SetPixel(Color color, int x, int y)
+        {
+            grassTile.SetPixel(color, x, y);
         }
     }
 }

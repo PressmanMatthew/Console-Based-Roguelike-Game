@@ -58,3 +58,15 @@ D:\Users\mrp3362\Documents\Visual Studio 2013\Projects\PressmanM-HW2 - Extra Ver
 E:\School\Game Design and Development 1\PressmanM-HW2 - Extra Version-0.10\PressmanM-HW1\bin\Debug\PressmanM-HW1.exe.config
 E:\School\Game Design and Development 1\PressmanM-HW2 - Extra Version-0.10\PressmanM-HW1\obj\Debug\PressmanM-HW1.exe
 E:\School\Game Design and Development 1\PressmanM-HW2 - Extra Version-0.10\PressmanM-HW1\obj\Debug\PressmanM-HW1.pdb
+\\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.exe.config
+\\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.exe
+\\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.pdb
+\\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.exe
+\\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.pdb
+\\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.csprojResolveAssemblyReference.cache
+E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.exe.config
+E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.exe
+E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.pdb
+E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.exe
+E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.pdb
+E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.csprojResolveAssemblyReference.cache

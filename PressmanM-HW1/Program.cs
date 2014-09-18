@@ -27,8 +27,8 @@ namespace PressmanM_HW1
             int windowPositionUp = 100;
             int bufferAdd = 200;
             int moveSpeed = 5;
-            int highBound = 200;
-            int lowBound = 1;
+            int highBound = 205;
+            int lowBound = 0;
             int originalCursorLeftPos;
             int originalCursorUpPos;
             int cursorLeftPos;
@@ -88,16 +88,14 @@ namespace PressmanM_HW1
                     switch (inputKey.Key)
                     {
                         case ConsoleKey.A:
-                            if ((windowPositionLeft - (moveSpeed * 2)) < lowBound)
+                            if ((windowPositionLeft - (moveSpeed)) < lowBound)
                             {
 
                             }
                             else
                             {
                                 lvl.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
-                                windowPositionLeft -= moveSpeed;
-                                Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
-                                cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
+                                cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4) - 5;
                                 cursorUpPos = Console.WindowTop + (moveSpeed * 4);
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
                                 BlackPixel();
@@ -110,10 +108,13 @@ namespace PressmanM_HW1
                                         BlackPixel();
                                     }
                                 }
+                                Thread.Sleep(100);
+                                windowPositionLeft -= moveSpeed;
+                                Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                             }
                             break;
                         case ConsoleKey.D:
-                            if ((windowPositionLeft + (moveSpeed * 2)) > highBound - 45)
+                            if ((windowPositionLeft + (moveSpeed)) > highBound - 45)
                             {
 
                             }
@@ -121,9 +122,7 @@ namespace PressmanM_HW1
                             {
                                 lvl.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
                                 Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
-                                windowPositionLeft += moveSpeed;
-                                Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
-                                cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
+                                cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4) + 5;
                                 cursorUpPos = Console.WindowTop + (moveSpeed * 4);
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
                                 BlackPixel();
@@ -136,6 +135,9 @@ namespace PressmanM_HW1
                                         BlackPixel();
                                     }
                                 }
+                                Thread.Sleep(100);
+                                windowPositionLeft += moveSpeed;
+                                Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                             }
                             break;
                         case ConsoleKey.W:
@@ -146,11 +148,8 @@ namespace PressmanM_HW1
                             else
                             {
                                 lvl.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
-                                Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
-                                windowPositionUp -= moveSpeed;
-                                Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                                 cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
-                                cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+                                cursorUpPos = Console.WindowTop + (moveSpeed * 4) - 5;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
                                 BlackPixel();
                                 for (int i = 0; i < 5; i++)
@@ -162,6 +161,9 @@ namespace PressmanM_HW1
                                         BlackPixel();
                                     }
                                 }
+                                Thread.Sleep(100);
+                                windowPositionUp -= moveSpeed;
+                                Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                             }
                             break;
                         case ConsoleKey.S:
@@ -172,11 +174,8 @@ namespace PressmanM_HW1
                             else
                             {
                                 lvl.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
-                                Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
-                                windowPositionUp += moveSpeed;
-                                Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                                 cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
-                                cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+                                cursorUpPos = Console.WindowTop + (moveSpeed * 4) + 5;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
                                 BlackPixel();
                                 for (int i = 0; i < 5; i++)
@@ -188,6 +187,9 @@ namespace PressmanM_HW1
                                         BlackPixel();
                                     }
                                 }
+                                Thread.Sleep(100);
+                                windowPositionUp += moveSpeed;
+                                Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                             }
                             break;
                     }

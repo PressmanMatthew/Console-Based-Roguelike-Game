@@ -70,3 +70,6 @@ E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\Press
 E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.exe
 E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.pdb
 E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.csprojResolveAssemblyReference.cache
+D:\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.exe.config
+D:\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.exe
+D:\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.pdb

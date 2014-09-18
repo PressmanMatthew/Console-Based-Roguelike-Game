@@ -43,15 +43,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasementLevel.cs" />
+    <Compile Include="BlackPixel.cs" />
+    <Compile Include="BluePixel.cs" />
+    <Compile Include="ClearPixel.cs" />
+    <Compile Include="CyanPixel.cs" />
+    <Compile Include="DarkBluePixel.cs" />
+    <Compile Include="DarkCyanPixel.cs" />
+    <Compile Include="DarkGrayPixel.cs" />
+    <Compile Include="DarkGreenPixel.cs" />
+    <Compile Include="DarkMagentaPixel.cs" />
+    <Compile Include="DarkRedPixel.cs" />
+    <Compile Include="DarkYellowPixel.cs" />
     <Compile Include="GrassTile.cs" />
+    <Compile Include="GrayPixel.cs" />
+    <Compile Include="GreenPixel.cs" />
+    <Compile Include="InsideLevel.cs" />
+    <Compile Include="MagentaPixel.cs" />
+    <Compile Include="OutsideLevel.cs" />
     <Compile Include="Pixel.cs" />
+    <Compile Include="PondTile.cs" />
+    <Compile Include="RedPixel.cs" />
+    <Compile Include="Renderer.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WhitePixel.cs" />
+    <Compile Include="YellowPixel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

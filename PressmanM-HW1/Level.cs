@@ -133,5 +133,11 @@ namespace PressmanM_HW1
                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
             }
         }
+
+        public void ClearScreen()
+        {
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.Clear();
+        }
     }
 }

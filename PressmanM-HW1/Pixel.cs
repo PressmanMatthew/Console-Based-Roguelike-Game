@@ -9,6 +9,25 @@ namespace PressmanM_HW1
 {
     public class Pixel
     {
+
+        protected Color color { get; set;}
+        protected int colorNum { get; set; }
+        protected ConsoleColor consoleColor { get; set; }
+
+        public Pixel()
+        {
+            
+
+        }
+
+        public void WritePixel(int cursorLeftPos, int cursorUpPos)
+        {
+            Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+            Console.BackgroundColor = consoleColor;
+            Console.Write(" ");
+            Console.BackgroundColor = ConsoleColor.White;
+        }
+
         /////////////////
         //Color Checker//
         /////////////////
@@ -293,7 +312,7 @@ namespace PressmanM_HW1
                     NextLine();
                     break;
                 case 1:
-                    BlackPixel();
+                    //BlackPixel();
                     break;
                 case 2:
                     BluePixel();
@@ -348,12 +367,12 @@ namespace PressmanM_HW1
         //Pixel Colors//
         ////////////////
 
-        static void BlackPixel()
-        {
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
+        //static void BlackPixel()
+        //{
+        //    Console.BackgroundColor = ConsoleColor.Black;
+        //    Console.Write(" ");
+        //    Console.BackgroundColor = ConsoleColor.White;
+        //}
 
         static void BluePixel()
         {

@@ -12,7 +12,6 @@ namespace PressmanM_HW1
         String directoryPath = Environment.CurrentDirectory + @"\..\..\levels\";
         String fullPath;
         Bitmap tileMap;
-        ColorHandler colHandler = new ColorHandler();
         static Tile tile = new Tile("grasstile.png");
         static GrassTile grass = new GrassTile();
         static Tile pondTile = new Tile("pondtile.png");
@@ -36,7 +35,7 @@ namespace PressmanM_HW1
                 for (int j = 0; j < levelSize - 1; j++)
                 {
                     pixel = tileMap.GetPixel(i, j);
-                    colorNum = colHandler.ColorCheck(pixel);
+                    colorNum = Pixel.ColorCheck(pixel);
 
                     tiles[i, j] = colorNum;
                 }
@@ -65,13 +64,15 @@ namespace PressmanM_HW1
 
                     
 
-                    if (colHandler.GreenColorCheck(tiles[tilesFinishedj, tilesFinishedi]))
+                    if (Pixel.GreenColorCheck(tiles[tilesFinishedj, tilesFinishedi]))
                     {
+                        //Console.WriteLine(tiles[tilesFinishedj, tilesFinishedi]);
                         pixel = tile.GetPixel(pixelIterj, pixelIteri);
                         pixels[pixelIterj, pixelIteri] = pixel;
-                        colorNum = colHandler.ColorCheck(pixel);
+                        colorNum = Pixel.ColorCheck(pixel);
                         grassPixels[pixelIterj, pixelIteri] = colorNum;
-                        colHandler.ColorCodeReturn(colorNum);
+                        //Console.WriteLine(colorNum);
+                        Pixel.ColorCodeReturn(colorNum);
                         //grass.CreateGrassTile();
                         //pixel = tile.GetPixel(pixelIterj, tilesFinishedi);
                         //colorNum = Pixel.ColorCheck(pixel);
@@ -81,19 +82,19 @@ namespace PressmanM_HW1
                         //    Pixel.ColorCodeReturn(grassTile.GetPixel(x, pixelIteri));
                         //}
                     }
-                    else if (colHandler.BlueColorCheck(tiles[tilesFinishedj, tilesFinishedi]))
+                    else if (Pixel.BlueColorCheck(tiles[tilesFinishedj, tilesFinishedi]))
                     {
                         pixel = pondTile.GetPixel(pixelIterj, pixelIteri);
                         pixels[pixelIterj, pixelIteri] = pixel;
-                        colorNum = colHandler.ColorCheck(pixel);
+                        colorNum = Pixel.ColorCheck(pixel);
                         pondPixels[pixelIterj, pixelIteri] = colorNum;
                         //Console.WriteLine(colorNum);
-                        colHandler.ColorCodeReturn(colorNum);
+                        Pixel.ColorCodeReturn(colorNum);
                     }
 
                     if (j == levelPixelsNum - 1)
                     {
-                        Console.WriteLine();
+                        Pixel.NextLine();
                     }
                 }
             }
@@ -112,8 +113,8 @@ namespace PressmanM_HW1
                     for (int j = 0; j < 5; j++)
                     {
                         Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
-                        colorNum = colHandler.ColorCheck(pondTile.GetPixel(j, i));
-                        colHandler.ColorCodeReturn(colorNum);
+                        colorNum = Pixel.ColorCheck(pondTile.GetPixel(j, i));
+                        Pixel.ColorCodeReturn(colorNum);
                     }
                 }
                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
@@ -125,18 +126,12 @@ namespace PressmanM_HW1
                     for (int j = 0; j < 5; j++)
                     {
                         Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
-                        colorNum = colHandler.ColorCheck(tile.GetPixel(j, i));
-                        colHandler.ColorCodeReturn(colorNum);
+                        colorNum = Pixel.ColorCheck(tile.GetPixel(j, i));
+                        Pixel.ColorCodeReturn(colorNum);
                     }
                 }
                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
             }
-        }
-
-        public void ClearScreen()
-        {
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.Clear();
         }
     }
 }

@@ -10,21 +10,13 @@ namespace PressmanM_HW1
     class GrassTile
     {
         Tile grassTile = new Tile("grasstile.png");
-        ColorHandler colHandler = new ColorHandler();
         const int tileLength = 5;
         Color pixel;
         int colorNum;
 
-        public GrassTile()
-        {
-
-        }
-
         public void CreateGrassTile()
         {
-
-            int originalCursorLeftPos = Console.CursorLeft;
-            int originalCursorUpPos = Console.CursorTop;
+            
 
             //This starts the parsing of the picture pixels into console colors
             for (int i = 0; i < tileLength - 1; i++)
@@ -32,11 +24,15 @@ namespace PressmanM_HW1
                 for (int j = 0; j < tileLength; j++)
                 {
                     pixel = grassTile.GetPixel(i, j); // iterate through the different pixel colors
-                    colorNum = colHandler.ColorCheck(pixel);
-                    int cursorLeftPos = originalCursorLeftPos + j;
-                    int cursorUpPos = originalCursorUpPos + i;
+                    colorNum = Pixel.ColorCheck(pixel);
 
-                    colHandler.ColorCodeReturn(cursorLeftPos, cursorUpPos, colorNum);
+
+                    Pixel.ColorCodeReturn(colorNum);
+
+                    if (j == tileLength - 1)
+                    {
+                        Pixel.NextLine(); // Makes a new line at the end of each line
+                    }
                 }
             }
         }

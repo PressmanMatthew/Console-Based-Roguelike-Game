@@ -17,7 +17,6 @@ namespace PressmanM_HW1
             String play = "N";
             const int stepsNeeded = 16;
             int stepsTaken = 0;
-            ColorHandler colHandler = new ColorHandler();
             Level lvl = new Level("outside.png");
             Tile grassTile = new Tile("grasstile.png");
             Tile pondTile = new Tile("pondtile.png");
@@ -69,7 +68,7 @@ namespace PressmanM_HW1
                 {
 
                     Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
-                    colHandler.ColorCodeReturn(1);
+                    Pixel.ColorCodeReturn(1);
                 }
             }
 
@@ -221,7 +220,7 @@ namespace PressmanM_HW1
                                     for (int k = 0; k < 3; k++)
                                     {
                                         Console.SetCursorPosition(cursorLeftPos + k, cursorUpPos + j);
-                                        colHandler.ColorCodeReturn(13);
+                                        Pixel.ColorCodeReturn(13);
                                     }
                                 }
 
@@ -233,18 +232,18 @@ namespace PressmanM_HW1
                                     {
                                         if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
                                         {
-                                            colorNum = colHandler.ColorCheck(pondTile.GetPixel(k + 1, j + 1));
+                                            colorNum = Pixel.ColorCheck(pondTile.GetPixel(k + 1, j + 1));
                                         }
                                         else if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
                                         {
-                                            colorNum = colHandler.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
+                                            colorNum = Pixel.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
                                         }
                                         else
                                         {
-                                            colorNum = colHandler.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
+                                            colorNum = Pixel.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
                                         }
                                         Console.SetCursorPosition(cursorLeftPos + k, cursorUpPos + j);
-                                        colHandler.ColorCodeReturn(colorNum);
+                                        Pixel.ColorCodeReturn(colorNum);
                                     }
 
                                 }
@@ -269,7 +268,7 @@ namespace PressmanM_HW1
                                     for (int k = 0; k < 3; k++)
                                     {
                                         Console.SetCursorPosition(cursorLeftPos + k, cursorUpPos + j);
-                                        colHandler.ColorCodeReturn(13);
+                                        Pixel.ColorCodeReturn(13);
                                     }
                                 }
 
@@ -281,18 +280,18 @@ namespace PressmanM_HW1
                                     {
                                         if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
                                         {
-                                            colorNum = colHandler.ColorCheck(pondTile.GetPixel(k + 1, j + 1));
+                                            colorNum = Pixel.ColorCheck(pondTile.GetPixel(k + 1, j + 1));
                                         }
                                         else if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
                                         {
-                                            colorNum = colHandler.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
+                                            colorNum = Pixel.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
                                         }
                                         else
                                         {
-                                            colorNum = colHandler.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
+                                            colorNum = Pixel.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
                                         }
                                         Console.SetCursorPosition(cursorLeftPos + k, cursorUpPos + j);
-                                        colHandler.ColorCodeReturn(colorNum);
+                                        Pixel.ColorCodeReturn(colorNum);
                                     }
 
                                 }
@@ -317,7 +316,7 @@ namespace PressmanM_HW1
                                     for (int k = 0; k < 3; k++)
                                     {
                                         Console.SetCursorPosition(cursorLeftPos + k, cursorUpPos + j);
-                                        colHandler.ColorCodeReturn(13);
+                                        Pixel.ColorCodeReturn(13);
                                     }
                                 }
 
@@ -329,18 +328,18 @@ namespace PressmanM_HW1
                                     {
                                         if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
                                         {
-                                            colorNum = colHandler.ColorCheck(pondTile.GetPixel(k + 1, j + 1));
+                                            colorNum = Pixel.ColorCheck(pondTile.GetPixel(k + 1, j + 1));
                                         }
                                         else if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
                                         {
-                                            colorNum = colHandler.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
+                                            colorNum = Pixel.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
                                         }
                                         else
                                         {
-                                            colorNum = colHandler.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
+                                            colorNum = Pixel.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
                                         }
                                         Console.SetCursorPosition(cursorLeftPos + k, cursorUpPos + j);
-                                        colHandler.ColorCodeReturn(colorNum);
+                                        Pixel.ColorCodeReturn(colorNum);
                                     }
 
                                 }
@@ -365,7 +364,7 @@ namespace PressmanM_HW1
                                     for (int k = 0; k < 3; k++)
                                     {
                                         Console.SetCursorPosition(cursorLeftPos + k, cursorUpPos + j);
-                                        colHandler.ColorCodeReturn(13);
+                                        Pixel.ColorCodeReturn(13);
                                     }
                                 }
 
@@ -377,18 +376,18 @@ namespace PressmanM_HW1
                                     {
                                         if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
                                         {
-                                            colorNum = colHandler.ColorCheck(pondTile.GetPixel(k + 1, j + 1));
+                                            colorNum = Pixel.ColorCheck(pondTile.GetPixel(k + 1, j + 1));
                                         }
                                         else if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
                                         {
-                                            colorNum = colHandler.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
+                                            colorNum = Pixel.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
                                         }
                                         else
                                         {
-                                            colorNum = colHandler.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
+                                            colorNum = Pixel.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
                                         }
                                         Console.SetCursorPosition(cursorLeftPos + k, cursorUpPos + j);
-                                        colHandler.ColorCodeReturn(colorNum);
+                                        Pixel.ColorCodeReturn(colorNum);
                                     }
 
                                 }

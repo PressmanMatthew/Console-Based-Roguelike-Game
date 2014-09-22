@@ -11,7 +11,9 @@ namespace PressmanM_HW1
     {
         public ClearPixel()
         {
-            this.colorNum = 0;
+            this.color = Color.Black;
+            this.colorNum = 1;
+            this.consoleColor = ConsoleColor.Black;
         }
     }
 }

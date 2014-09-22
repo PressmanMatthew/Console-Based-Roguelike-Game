@@ -47,7 +47,6 @@
     <Compile Include="BlackPixel.cs" />
     <Compile Include="BluePixel.cs" />
     <Compile Include="ClearPixel.cs" />
-    <Compile Include="ColorHandler.cs" />
     <Compile Include="CyanPixel.cs" />
     <Compile Include="DarkBluePixel.cs" />
     <Compile Include="DarkCyanPixel.cs" />

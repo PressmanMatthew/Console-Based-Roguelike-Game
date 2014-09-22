@@ -12,7 +12,7 @@ namespace PressmanM_HW1
         public WhitePixel()
         {
             this.color = Color.White;
-            this.colorNum = 1;
+            this.colorNum = 15;
             this.consoleColor = ConsoleColor.White;
         }
     }

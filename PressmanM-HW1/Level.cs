@@ -15,6 +15,7 @@ namespace PressmanM_HW1
         static Tile tile = new Tile("grasstile.png");
         static GrassTile grass = new GrassTile();
         static Tile pondTile = new Tile("pondtile.png");
+        ColorHandler colHandler = new ColorHandler();
         static int tileLength =  tile.GetTileLength();
         Color pixel;
         const int levelSize = 50;
@@ -35,7 +36,7 @@ namespace PressmanM_HW1
                 for (int j = 0; j < levelSize - 1; j++)
                 {
                     pixel = tileMap.GetPixel(i, j);
-                    colorNum = Pixel.ColorCheck(pixel);
+                    colorNum = colHandler.ColorCheck(pixel);
 
                     tiles[i, j] = colorNum;
                 }
@@ -53,6 +54,8 @@ namespace PressmanM_HW1
 
         public void CreateLevel()
         {
+            int orgCursorLeftPos = Console.CursorLeft;
+            int orgCursorUpPos = Console.CursorTop;
             for (int i = 0; i < levelPixelsNum; i++)
             {
                 for (int j = 0; j < levelPixelsNum; j++)
@@ -61,6 +64,9 @@ namespace PressmanM_HW1
                     int pixelIteri = i - (tilesFinishedi * 5);
                     int tilesFinishedj = j / 5;
                     int pixelIterj = j - (tilesFinishedj * 5);
+                    int cursorLeftPos = orgCursorLeftPos + j;
+                    int cursorUpPos = orgCursorUpPos + i;
+                    //Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
 
                     
 
@@ -69,10 +75,10 @@ namespace PressmanM_HW1
                         //Console.WriteLine(tiles[tilesFinishedj, tilesFinishedi]);
                         pixel = tile.GetPixel(pixelIterj, pixelIteri);
                         pixels[pixelIterj, pixelIteri] = pixel;
-                        colorNum = Pixel.ColorCheck(pixel);
+                        colorNum = colHandler.ColorCheck(pixel);
                         grassPixels[pixelIterj, pixelIteri] = colorNum;
                         //Console.WriteLine(colorNum);
-                        Pixel.ColorCodeReturn(colorNum);
+                        colHandler.ColorCodeReturn(colorNum);
                         //grass.CreateGrassTile();
                         //pixel = tile.GetPixel(pixelIterj, tilesFinishedi);
                         //colorNum = Pixel.ColorCheck(pixel);
@@ -132,6 +138,12 @@ namespace PressmanM_HW1
                 }
                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
             }
+        }
+
+        public void ClearScreen()
+        {
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.Clear();
         }
     }
 }

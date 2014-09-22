@@ -45,52 +45,52 @@ namespace PressmanM_HW1
                     clear.WriteClearPixel();
                     break;
                 case 1:
-                    black.WritePixel(Console.CursorLeft, Console.CursorTop);
+                    black.WritePixel();
                     break;
                 case 2:
-                    blue.WritePixel(Console.CursorLeft, Console.CursorLeft);
+                    blue.WritePixel();
                     break;
                 case 3:
-                    cyan.WritePixel(Console.CursorLeft, Console.CursorLeft);
+                    cyan.WritePixel();
                     break;
                 case 4:
-                    darkBlue.WritePixel(Console.CursorLeft, Console.CursorLeft);
+                    darkBlue.WritePixel();
                     break;
                 case 5:
-                    darkCyan.WritePixel(Console.CursorLeft, Console.CursorLeft);
+                    darkCyan.WritePixel();
                     break;
                 case 6:
-                    darkGray.WritePixel(Console.CursorLeft, Console.CursorLeft);
+                    darkGray.WritePixel();
                     break;
                 case 7:
-                    darkGreen.WritePixel(Console.CursorLeft, Console.CursorLeft);
+                    darkGreen.WritePixel();
                     break;
                 case 8:
-                    darkMagenta.WritePixel(Console.CursorLeft, Console.CursorLeft);
+                    darkMagenta.WritePixel();
                     break;
                 case 9:
-                    darkRed.WritePixel(Console.CursorLeft, Console.CursorLeft);
+                    darkRed.WritePixel();
                     break;
                 case 10:
-                    darkYellow.WritePixel(Console.CursorLeft, Console.CursorLeft);
+                    darkYellow.WritePixel();
                     break;
                 case 11:
-                    gray.WritePixel(Console.CursorLeft, Console.CursorLeft);
+                    gray.WritePixel();
                     break;
                 case 12:
-                    green.WritePixel(Console.CursorLeft, Console.CursorLeft);
+                    green.WritePixel();
                     break;
                 case 13:
-                    magenta.WritePixel(Console.CursorLeft, Console.CursorLeft);
+                    magenta.WritePixel();
                     break;
                 case 14:
-                    red.WritePixel(Console.CursorLeft, Console.CursorLeft);
+                    red.WritePixel();
                     break;
                 case 15:
-                    white.WritePixel(Console.CursorLeft, Console.CursorLeft);
+                    white.WritePixel();
                     break;
                 case 16:
-                    yellow.WritePixel(Console.CursorLeft, Console.CursorLeft);
+                    yellow.WritePixel();
                     break;
 
             }

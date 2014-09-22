@@ -20,6 +20,7 @@ namespace PressmanM_HW1
             Level lvl = new Level("outside.png");
             Tile grassTile = new Tile("grasstile.png");
             Tile pondTile = new Tile("pondtile.png");
+            ColorHandler colHandler = new ColorHandler();
             int originalBufferWidth = Console.BufferWidth;
             int originalBufferHeight = Console.BufferHeight;
             int attackSpeed = 250;
@@ -40,7 +41,7 @@ namespace PressmanM_HW1
             //Init//
             ////////
 
-            ClearScreen();
+            lvl.ClearScreen();
 
             Console.BufferHeight += bufferAdd;
             Console.BufferWidth += bufferAdd;
@@ -65,9 +66,7 @@ namespace PressmanM_HW1
             {
                 for (int j = 0; j < 5; j++)
                 {
-
-                    Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
-                    BlackPixel();
+                    colHandler.ColorCodeReturn(cursorLeftPos + j, cursorUpPos + i, 1);
                 }
             }
 
@@ -98,14 +97,11 @@ namespace PressmanM_HW1
                                 cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4) - 5;
                                 cursorUpPos = Console.WindowTop + (moveSpeed * 4);
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-                                BlackPixel();
                                 for (int i = 0; i < 5; i++)
                                 {
                                     for (int j = 0; j < 5; j++)
                                     {
-
-                                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
-                                        BlackPixel();
+                                        colHandler.ColorCodeReturn(cursorLeftPos + j, cursorUpPos + i, 1);
                                     }
                                 }
                                 Thread.Sleep(100);
@@ -125,14 +121,11 @@ namespace PressmanM_HW1
                                 cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4) + 5;
                                 cursorUpPos = Console.WindowTop + (moveSpeed * 4);
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-                                BlackPixel();
                                 for (int i = 0; i < 5; i++)
                                 {
                                     for (int j = 0; j < 5; j++)
                                     {
-
-                                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
-                                        BlackPixel();
+                                        colHandler.ColorCodeReturn(cursorLeftPos + j, cursorUpPos + i, 1);
                                     }
                                 }
                                 Thread.Sleep(100);
@@ -151,14 +144,11 @@ namespace PressmanM_HW1
                                 cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
                                 cursorUpPos = Console.WindowTop + (moveSpeed * 4) - 5;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-                                BlackPixel();
                                 for (int i = 0; i < 5; i++)
                                 {
                                     for (int j = 0; j < 5; j++)
                                     {
-
-                                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
-                                        BlackPixel();
+                                        colHandler.ColorCodeReturn(cursorLeftPos + j, cursorUpPos + i, 1);
                                     }
                                 }
                                 Thread.Sleep(100);
@@ -177,14 +167,11 @@ namespace PressmanM_HW1
                                 cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
                                 cursorUpPos = Console.WindowTop + (moveSpeed * 4) + 5;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-                                BlackPixel();
                                 for (int i = 0; i < 5; i++)
                                 {
                                     for (int j = 0; j < 5; j++)
                                     {
-
-                                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
-                                        BlackPixel();
+                                        colHandler.ColorCodeReturn(cursorLeftPos + j, cursorUpPos + i, 1);
                                     }
                                 }
                                 Thread.Sleep(100);
@@ -229,8 +216,7 @@ namespace PressmanM_HW1
                                 {
                                     for (int k = 0; k < 3; k++)
                                     {
-                                        Console.SetCursorPosition(cursorLeftPos + k, cursorUpPos + j);
-                                        Pixel.ColorCodeReturn(13);
+                                        colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, 13);
                                     }
                                 }
 
@@ -252,8 +238,7 @@ namespace PressmanM_HW1
                                         {
                                             colorNum = Pixel.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
                                         }
-                                        Console.SetCursorPosition(cursorLeftPos + k, cursorUpPos + j);
-                                        Pixel.ColorCodeReturn(colorNum);
+                                        colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, colorNum);
                                     }
 
                                 }
@@ -277,8 +262,7 @@ namespace PressmanM_HW1
                                 {
                                     for (int k = 0; k < 3; k++)
                                     {
-                                        Console.SetCursorPosition(cursorLeftPos + k, cursorUpPos + j);
-                                        Pixel.ColorCodeReturn(13);
+                                        colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, 13);
                                     }
                                 }
 
@@ -300,8 +284,7 @@ namespace PressmanM_HW1
                                         {
                                             colorNum = Pixel.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
                                         }
-                                        Console.SetCursorPosition(cursorLeftPos + k, cursorUpPos + j);
-                                        Pixel.ColorCodeReturn(colorNum);
+                                        colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, colorNum);
                                     }
 
                                 }
@@ -325,8 +308,7 @@ namespace PressmanM_HW1
                                 {
                                     for (int k = 0; k < 3; k++)
                                     {
-                                        Console.SetCursorPosition(cursorLeftPos + k, cursorUpPos + j);
-                                        Pixel.ColorCodeReturn(13);
+                                        colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, 13);
                                     }
                                 }
 
@@ -348,8 +330,7 @@ namespace PressmanM_HW1
                                         {
                                             colorNum = Pixel.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
                                         }
-                                        Console.SetCursorPosition(cursorLeftPos + k, cursorUpPos + j);
-                                        Pixel.ColorCodeReturn(colorNum);
+                                        colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, colorNum);
                                     }
 
                                 }
@@ -373,8 +354,7 @@ namespace PressmanM_HW1
                                 {
                                     for (int k = 0; k < 3; k++)
                                     {
-                                        Console.SetCursorPosition(cursorLeftPos + k, cursorUpPos + j);
-                                        Pixel.ColorCodeReturn(13);
+                                        colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, 13);
                                     }
                                 }
 
@@ -396,8 +376,7 @@ namespace PressmanM_HW1
                                         {
                                             colorNum = Pixel.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
                                         }
-                                        Console.SetCursorPosition(cursorLeftPos + k, cursorUpPos + j);
-                                        Pixel.ColorCodeReturn(colorNum);
+                                        colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, colorNum);
                                     }
 
                                 }
@@ -410,11 +389,6 @@ namespace PressmanM_HW1
                     windowPositionLeft = 100;
                     Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                 }
-                //Console.SetCursorPosition(originalCursorLeftPos, originalCursorUpPos);
-                //Console.WriteLine("Tile Up position: " + (((windowPositionUp + 45) / 5) - 1));
-                //Console.WriteLine("Cursor Left Position: " + cursorLeftPos);
-                //Console.WriteLine("Tile Left position: " + (((windowPositionLeft + 45) / 5) - 1));
-                //Console.WriteLine("Cursor Up Position: " + cursorUpPos);
 
             }
             //GrassTile();
@@ -504,270 +478,6 @@ namespace PressmanM_HW1
 
             //I could make the enemies random in the basement, however doing this will mean that the difficulty would have to remain not random(first room easiest - fourth room hardest/boss)
             //Descriptions for each square in the grid(Eventual)
-        }
-
-        static void GrassTile()
-        {
-            String filePath = Environment.CurrentDirectory + @"\..\..\"; //Find the directory with the program and tile in it
-            filePath = filePath + "grasstile.png"; //Add the tile picture name
-            Bitmap bit = new Bitmap(filePath); //Create a Bitmap of the image
-            const int tileLength = 5;
-            Color pixel;
-            int colorNum;
-            
-            //This starts the parsing of the picture pixels into console colors
-            for (int i = 0; i < tileLength - 1; i++)
-            {
-                for (int j = 0; j < tileLength; j++)
-                {
-                    pixel = bit.GetPixel(i, j); // iterate through the different pixel colors
-                    colorNum = ColorCheck(pixel);
-
-                    ColorCode(colorNum);
-
-                    if (j == tileLength - 1)
-                    {
-                        NextLine(); // Makes a new line at the end of each line
-                    }
-                } 
-            }
-        }
-
-        static void ClearScreen()
-        {
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.Clear();
-        }
-
-        static int ColorCheck(Color color)
-        {
-            if (color.Equals(Color.FromArgb(0, 0, 0))) {
-                return 1; // Checks for Black
-            }
-            else if (color.Equals(Color.FromArgb(0, 0, 255))) {
-                return 2; // Checks for Blue
-            }
-            else if (color.Equals(Color.FromArgb(0, 255, 255))) {
-                return 3; // Checks for Cyan
-            }
-            else if (color.Equals(Color.FromArgb(0, 0, 128))) {
-                return 4; // Checks for DarkBlue
-            }
-            else if (color.Equals(Color.FromArgb(0, 128, 128))) {
-                return 5; // Checks for DarkCyan
-            }
-            else if (color.Equals(Color.FromArgb(128, 128, 128))) {
-                return 6; // Checks for DarkGrey
-            }
-            else if (color.Equals(Color.FromArgb(0, 128, 0))) {
-                return 7; // Checks for DarkGreen
-            }
-            else if (color.Equals(Color.FromArgb(128, 0, 128))) {
-                return 8; // Checks for DarkMagenta
-            }
-            else if (color.Equals(Color.FromArgb(128, 0, 0))) {
-                return 9; // Checks for DarkRed
-            }
-            else if (color.Equals(Color.FromArgb(128, 128, 0))) {
-                return 10; // Checks for DarkYellow
-            }
-            else if (color.Equals(Color.FromArgb(192, 192, 192))) {
-                return 11; // Checks for Gray
-            }
-            else if (color.Equals(Color.FromArgb(0, 255, 0))) {
-                return 12; // Checks for Green
-            }
-            else if (color.Equals(Color.FromArgb(255, 0, 255))) {
-                return 13; // Checks for Magenta
-            }
-            else if (color.Equals(Color.FromArgb(255, 0, 0))) {
-                return 14; // Checks for Red
-            }
-            else if (color.Equals(Color.FromArgb(255, 255, 255))) {
-                return 15; // Checks for White
-            }
-            else if (color.Equals(Color.FromArgb(255, 255, 0))) {
-                return 16; // Checks for Yellow
-            }
-            else
-            {
-                return 0; // Returns the default for none
-            }
-        }
-        static void ColorCode(int num)
-        {
-            switch (num)
-            {
-                case 0:
-                    NextLine();
-                    break;
-                case 1:
-                    BlackPixel();
-                    break;
-                case 2:
-                    BluePixel();
-                    break;
-                case 3:
-                    CyanPixel();
-                    break;
-                case 4:
-                    DarkBluePixel();
-                    break;
-                case 5:
-                    DarkCyanPixel();
-                    break;
-                case 6:
-                    DarkGrayPixel();
-                    break;
-                case 7:
-                    DarkGreenPixel();
-                    break;
-                case 8:
-                    DarkMagentaPixel();
-                    break;
-                case 9:
-                    DarkRedPixel();
-                    break;
-                case 10:
-                    DarkYellowPixel();
-                    break;
-                case 11:
-                    GrayPixel();
-                    break;
-                case 12:
-                    GreenPixel();
-                    break;
-                case 13:
-                    MagentaPixel();
-                    break;
-                case 14:
-                    RedPixel();
-                    break;
-                case 15:
-                    WhitePixel();
-                    break;
-                case 16:
-                    YellowPixel();
-                    break;
-                
-            }
-        }
-
-        static void BlackPixel()
-        {
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
-
-        static void BluePixel()
-        {
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
-
-        static void CyanPixel()
-        {
-            Console.BackgroundColor = ConsoleColor.Cyan;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
-
-        static void DarkBluePixel()
-        {
-            Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
-
-        static void DarkCyanPixel()
-        {
-            Console.BackgroundColor = ConsoleColor.DarkCyan;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
-
-        static void DarkGrayPixel()
-        {
-            Console.BackgroundColor = ConsoleColor.DarkGray;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
-
-        static void DarkGreenPixel()
-        {
-            Console.BackgroundColor = ConsoleColor.DarkGreen;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
-
-        static void DarkMagentaPixel()
-        {
-            Console.BackgroundColor = ConsoleColor.DarkMagenta;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
-
-        static void DarkRedPixel()
-        {
-            Console.BackgroundColor = ConsoleColor.DarkRed;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
-
-        static void DarkYellowPixel()
-        {
-            Console.BackgroundColor = ConsoleColor.DarkYellow;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
-
-        static void GrayPixel()
-        {
-            Console.BackgroundColor = ConsoleColor.Gray;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
-
-        static void GreenPixel()
-        {
-            Console.BackgroundColor = ConsoleColor.Green;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
-
-        static void MagentaPixel()
-        {
-            Console.BackgroundColor = ConsoleColor.Magenta;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
-
-        static void RedPixel()
-        {
-            Console.BackgroundColor = ConsoleColor.Red;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
-
-        static void WhitePixel()
-        {
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
-
-        static void YellowPixel()
-        {
-            Console.BackgroundColor = ConsoleColor.Yellow;
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.White;
-        }
-
-        static void NextLine()
-        {
-            Console.WriteLine();
         }
     }
 }

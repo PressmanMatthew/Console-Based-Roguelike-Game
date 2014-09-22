@@ -28,6 +28,13 @@ namespace PressmanM_HW1
             Console.BackgroundColor = ConsoleColor.White;
         }
 
+        public void WritePixel()
+        {
+            Console.BackgroundColor = consoleColor;
+            Console.Write(" ");
+            Console.BackgroundColor = ConsoleColor.White;
+        }
+
         public void WriteClearPixel()
         {
             if (colorNum == 0)

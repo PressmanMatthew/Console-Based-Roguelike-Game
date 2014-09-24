@@ -17,7 +17,7 @@ namespace PressmanM_HW1
             String play = "N";
             const int stepsNeeded = 16;
             int stepsTaken = 0;
-            Level lvl = new Level("outside.png");
+            Level outsidelvl = new Level("outside.png");
             Tile grassTile = new Tile("grasstile.png");
             Tile pondTile = new Tile("pondtile.png");
             ColorHandler colHandler = new ColorHandler();
@@ -41,13 +41,13 @@ namespace PressmanM_HW1
             //Init//
             ////////
 
-            lvl.ClearScreen();
+            outsidelvl.ClearScreen();
 
             Console.BufferHeight += bufferAdd;
             Console.BufferWidth += bufferAdd;
 
 
-            lvl.CreateLevel();
+            outsidelvl.CreateLevel();
 
             //Aesthetic changes before play can begin
             Console.SetWindowSize(84,42);
@@ -93,7 +93,7 @@ namespace PressmanM_HW1
                             }
                             else
                             {
-                                lvl.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
+                                outsidelvl.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
                                 cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4) - 5;
                                 cursorUpPos = Console.WindowTop + (moveSpeed * 4);
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
@@ -116,7 +116,7 @@ namespace PressmanM_HW1
                             }
                             else
                             {
-                                lvl.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
+                                outsidelvl.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
                                 Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                                 cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4) + 5;
                                 cursorUpPos = Console.WindowTop + (moveSpeed * 4);
@@ -140,7 +140,7 @@ namespace PressmanM_HW1
                             }
                             else
                             {
-                                lvl.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
+                                outsidelvl.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
                                 cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
                                 cursorUpPos = Console.WindowTop + (moveSpeed * 4) - 5;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
@@ -163,7 +163,7 @@ namespace PressmanM_HW1
                             }
                             else
                             {
-                                lvl.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
+                                outsidelvl.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
                                 cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
                                 cursorUpPos = Console.WindowTop + (moveSpeed * 4) + 5;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
@@ -226,11 +226,11 @@ namespace PressmanM_HW1
                                 {
                                     for (int k = 0; k < 3; k++)
                                     {
-                                        if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
+                                        if (outsidelvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
                                         {
                                             colorNum = Pixel.ColorCheck(pondTile.GetPixel(k + 1, j + 1));
                                         }
-                                        else if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
+                                        else if (outsidelvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
                                         {
                                             colorNum = Pixel.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
                                         }
@@ -272,11 +272,11 @@ namespace PressmanM_HW1
                                 {
                                     for (int k = 0; k < 3; k++)
                                     {
-                                        if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
+                                        if (outsidelvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
                                         {
                                             colorNum = Pixel.ColorCheck(pondTile.GetPixel(k + 1, j + 1));
                                         }
-                                        else if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
+                                        else if (outsidelvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
                                         {
                                             colorNum = Pixel.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
                                         }
@@ -318,11 +318,11 @@ namespace PressmanM_HW1
                                 {
                                     for (int k = 0; k < 3; k++)
                                     {
-                                        if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
+                                        if (outsidelvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
                                         {
                                             colorNum = Pixel.ColorCheck(pondTile.GetPixel(k + 1, j + 1));
                                         }
-                                        else if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
+                                        else if (outsidelvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
                                         {
                                             colorNum = Pixel.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
                                         }
@@ -364,11 +364,11 @@ namespace PressmanM_HW1
                                 {
                                     for (int k = 0; k < 3; k++)
                                     {
-                                        if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
+                                        if (outsidelvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
                                         {
                                             colorNum = Pixel.ColorCheck(pondTile.GetPixel(k + 1, j + 1));
                                         }
-                                        else if (lvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
+                                        else if (outsidelvl.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
                                         {
                                             colorNum = Pixel.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
                                         }

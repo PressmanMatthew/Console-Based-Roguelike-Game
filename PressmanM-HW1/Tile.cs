@@ -9,16 +9,22 @@ namespace PressmanM_HW1
 {
     class Tile
     {
-        String directoryPath = Environment.CurrentDirectory + @"\..\..\tiles\";
-        String fullPath;
-        Bitmap pixelMap;
-        const int tileLength = 5;
-        Color pixel;
-        int colorNum;
-        String tileName;
-        private Color[,] pixels = new Color[tileLength,tileLength];
+        protected string tileFile { get; set; }
+        protected Bitmap pixelMap { get; set; }
+        private string directoryPath = Environment.CurrentDirectory + @"\..\..\tiles\";
+        private string fullPath;
+        private ColorHandler colHandler = new ColorHandler();
+        private const int tileLength = 5;
+        private Color pixel;
+        private int colorNum;
+        private int[,] pixelNums = new int[tileLength - 1, tileLength - 1];
 
-        public Tile(String tileFile)
+        public Tile()
+        {
+            
+        }
+
+        public Tile(string tileFile)
         {
             fullPath = directoryPath + tileFile;
             pixelMap = new Bitmap(fullPath);
@@ -30,7 +36,43 @@ namespace PressmanM_HW1
                     pixel = pixelMap.GetPixel(j, i);
                     colorNum = Pixel.ColorCheck(pixel);
 
-                    pixels[j, i] = pixel;
+                    pixelNums[j, i] = colorNum;
+                }
+            }
+        }
+
+        public void ParseBitmap()
+        {
+            fullPath = directoryPath + this.tileFile;
+            pixelMap = new Bitmap(fullPath);
+
+            for (int i = 0; i < tileLength - 1; i++)
+            {
+                for (int j = 0; i < tileLength - 1; i++)
+                {
+                    pixel = pixelMap.GetPixel(j, i);
+                    colorNum = Pixel.ColorCheck(pixel);
+
+                    pixelNums[j, i] = colorNum;
+                }
+            }
+        }
+
+        public void CreateTile(int cursorLeftPos, int cursorUpPos)
+        {
+
+
+            //This starts the parsing of the picture pixels into console colors
+            for (int i = 0; i < tileLength - 1; i++)
+            {
+                for (int j = 0; j < tileLength - 1; j++)
+                {
+                    pixel = GetPixel(i, j); // iterate through the different pixel colors
+                    colorNum = colHandler.ColorCheck(pixel);
+
+                    Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+
+                    colHandler.ColorCodeReturn(colorNum);
                 }
             }
         }
@@ -47,7 +89,17 @@ namespace PressmanM_HW1
 
         public void SetPixel(Color color, int x, int y)
         {
-            pixels[x, y] = color;
+            pixelMap.SetPixel(x, y, color);
+        }
+
+        public int GetPixelNum(int x, int y)
+        {
+            return pixelNums[x, y];
+        }
+
+        public void SetPixel(int x, int y, int colorNum)
+        {
+            pixelNums[x, y] = colorNum;
         }
 
         public void GrassTile()

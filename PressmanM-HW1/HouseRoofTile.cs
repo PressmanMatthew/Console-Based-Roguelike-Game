@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace PressmanM_HW1
 {
-    class PondTile : Tile
+    class HouseRoofTile : Tile
     {
-        public PondTile()
+        public HouseRoofTile()
         {
-            this.tileFile = "pondtile.png";
+            this.tileFile = "houserooftile.png";
             this.ParseBitmap();
         }
 

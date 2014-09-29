@@ -50,7 +50,7 @@ namespace PressmanM_HW1
             outsidelvl.CreateLevel();
 
             //Aesthetic changes before play can begin
-            Console.SetWindowSize(84,42);
+            Console.SetWindowSize(84, 42);
             Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
             originalCursorLeftPos = Console.CursorLeft;
             originalCursorUpPos = Console.CursorTop;

@@ -59,6 +59,7 @@
     <Compile Include="GrassTile.cs" />
     <Compile Include="GrayPixel.cs" />
     <Compile Include="GreenPixel.cs" />
+    <Compile Include="HouseRoofTile.cs" />
     <Compile Include="InsideLevel.cs" />
     <Compile Include="MagentaPixel.cs" />
     <Compile Include="OutsideLevel.cs" />

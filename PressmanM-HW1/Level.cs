@@ -13,7 +13,7 @@ namespace PressmanM_HW1
         String fullPath;
         Bitmap tileMap;
         static Tile tile = new Tile("grasstile.png");
-        static GrassTile grass = new GrassTile();
+        GrassTile grass = new GrassTile();
         static Tile pondTile = new Tile("pondtile.png");
         ColorHandler colHandler = new ColorHandler();
         static int tileLength =  tile.GetTileLength();
@@ -78,7 +78,7 @@ namespace PressmanM_HW1
                     if (colHandler.GreenColorCheck(tiles[tilesFinishedj, tilesFinishedi]))
                     {
                         //Console.WriteLine(tiles[tilesFinishedj, tilesFinishedi]);
-                        pixel = tile.GetPixel(pixelIterj, pixelIteri);
+                        pixel = grass.GetPixel(pixelIterj, pixelIteri);
                         pixels[pixelIterj, pixelIteri] = pixel;
                         colorNum = colHandler.ColorCheck(pixel);
                         grassPixels[pixelIterj, pixelIteri] = colorNum;

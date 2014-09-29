@@ -18,7 +18,7 @@ namespace PressmanM_HW1
         ColorHandler colHandler = new ColorHandler();
         static int tileLength =  tile.GetTileLength();
         Color pixel;
-        const int levelSize = 50;
+        const int levelSize = 49; // should match the number of pixels in the level file and be divisible by 5
         int colorNum;
         int levelPixelsNum = (levelSize * tileLength);
         Color[,] pixels = new Color[tileLength, tileLength];

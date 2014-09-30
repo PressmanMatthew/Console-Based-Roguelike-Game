@@ -73,3 +73,16 @@ E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\Press
 D:\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.exe.config
 D:\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.exe
 D:\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.pdb
+\\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Desktop\PressmanM-HW1.exe.config
+\\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Desktop\Latest Build of Console Game\PressmanM-HW1.exe.config
+\\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Desktop\Latest Build of Console Game\PressmanM-HW1.exe
+\\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Desktop\Latest Build of Console Game\PressmanM-HW1.pdb
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.exe.config
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.exe.manifest
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.application
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.exe
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.pdb
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.exe.manifest
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.application
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.exe
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.pdb

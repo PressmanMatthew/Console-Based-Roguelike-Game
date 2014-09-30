@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PressmanM-HW1.exe" size="22016">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PressmanM-HW1.exe" size="19968">
       <assemblyIdentity name="PressmanM-HW1" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gWjO4QkJjpXcmX60+cimZ24UFjA1zAUMsTFYN5iqZRg=</dsig:DigestValue>
+        <dsig:DigestValue>HaB7Lr5pHZ2vdY7sSaysjQ/ssI0tsGUf0gJ2ce2o/88=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

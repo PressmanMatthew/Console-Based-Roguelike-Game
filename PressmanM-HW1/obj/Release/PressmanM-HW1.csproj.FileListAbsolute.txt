@@ -1,0 +1,9 @@
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Release\PressmanM-HW1.exe.config
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Release\PressmanM-HW1.exe.manifest
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Release\PressmanM-HW1.application
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Release\PressmanM-HW1.exe
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Release\PressmanM-HW1.pdb
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Release\PressmanM-HW1.exe.manifest
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Release\PressmanM-HW1.application
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Release\PressmanM-HW1.exe
+D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Release\PressmanM-HW1.pdb

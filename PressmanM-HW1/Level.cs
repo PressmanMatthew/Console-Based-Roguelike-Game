@@ -65,10 +65,10 @@ namespace PressmanM_HW1
             {
                 for (int j = 0; j < levelPixelsNum; j++)
                 {
-                    int tilesFinishedi = i / 5;
-                    int pixelIteri = i - (tilesFinishedi * 5);
-                    int tilesFinishedj = j / 5;
-                    int pixelIterj = j - (tilesFinishedj * 5);
+                    int tilesFinishedi = i / tileLength;
+                    int pixelIteri = i - (tilesFinishedi * tileLength);
+                    int tilesFinishedj = j / tileLength;
+                    int pixelIterj = j - (tilesFinishedj * tileLength);
                     int cursorLeftPos = orgCursorLeftPos + j;
                     int cursorUpPos = orgCursorUpPos + i;
                     //Console.SetCursorPosition(cursorLeftPos, cursorUpPos);

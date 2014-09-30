@@ -71,6 +71,7 @@
     <Compile Include="Level.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TileHandler.cs" />
     <Compile Include="WhitePixel.cs" />
     <Compile Include="YellowPixel.cs" />
   </ItemGroup>

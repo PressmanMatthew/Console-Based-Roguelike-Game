@@ -17,7 +17,7 @@ namespace PressmanM_HW1
             String play = "N";
             const int stepsNeeded = 16;
             int stepsTaken = 0;
-            Level outsidelvl = new Level("outside.png");
+            OutsideLevel outsidelvl = new OutsideLevel("outside.png");
             Tile grassTile = new Tile("grasstile.png");
             Tile pondTile = new Tile("pondtile.png");
             ColorHandler colHandler = new ColorHandler();

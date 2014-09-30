@@ -14,8 +14,10 @@ namespace PressmanM_HW1
         Bitmap tileMap;
         static Tile tile = new Tile("grasstile.png");
         static GrassTile grass = new GrassTile();
+        HouseRoofTile houseRoof = new HouseRoofTile();
         static Tile pondTile = new Tile("pondtile.png");
         ColorHandler colHandler = new ColorHandler();
+        TileHandler tileHandler = new TileHandler();
         static int tileLength =  tile.GetTileLength();
         Color pixel;
         const int levelSize = 49; // should match the number of pixels in the level file and be divisible by 5
@@ -35,10 +37,10 @@ namespace PressmanM_HW1
             {
                 for (int j = 0; j < levelSize - 1; j++)
                 {
-                    pixel = tileMap.GetPixel(i, j);
+                    pixel = tileMap.GetPixel(j, i);
                     colorNum = colHandler.ColorCheck(pixel);
 
-                    tiles[i, j] = colorNum;
+                    tiles[j, i] = colorNum;
                 }
             }
 
@@ -60,43 +62,15 @@ namespace PressmanM_HW1
             {
                 for (int j = 0; j < levelPixelsNum; j++)
                 {
-                    int tilesFinishedi = i / 5;
-                    int pixelIteri = i - (tilesFinishedi * 5);
-                    int tilesFinishedj = j / 5;
-                    int pixelIterj = j - (tilesFinishedj * 5);
+                    int tilesFinishedi = i / tileLength;
+                    int pixelIteri = i - (tilesFinishedi * tileLength);
+                    int tilesFinishedj = j / tileLength;
+                    int pixelIterj = j - (tilesFinishedj * tileLength);
                     int cursorLeftPos = orgCursorLeftPos + j;
                     int cursorUpPos = orgCursorUpPos + i;
                     //Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
 
-                    
-
-                    if (colHandler.GreenColorCheck(tiles[tilesFinishedj, tilesFinishedi]))
-                    {
-                        //Console.WriteLine(tiles[tilesFinishedj, tilesFinishedi]);
-                        pixel = tile.GetPixel(pixelIterj, pixelIteri);
-                        pixels[pixelIterj, pixelIteri] = pixel;
-                        colorNum = colHandler.ColorCheck(pixel);
-                        grassPixels[pixelIterj, pixelIteri] = colorNum;
-                        //Console.WriteLine(colorNum);
-                        colHandler.ColorCodeReturn(colorNum);
-                        //grass.CreateGrassTile();
-                        //pixel = tile.GetPixel(pixelIterj, tilesFinishedi);
-                        //colorNum = Pixel.ColorCheck(pixel);
-                        //Pixel.ColorCodeReturn(colorNum);
-                        //for (int x = 0; x < tileLength; x++)
-                        //{
-                        //    Pixel.ColorCodeReturn(grassTile.GetPixel(x, pixelIteri));
-                        //}
-                    }
-                    else if (colHandler.BlueColorCheck(tiles[tilesFinishedj, tilesFinishedi]))
-                    {
-                        pixel = pondTile.GetPixel(pixelIterj, pixelIteri);
-                        pixels[pixelIterj, pixelIteri] = pixel;
-                        colorNum = colHandler.ColorCheck(pixel);
-                        pondPixels[pixelIterj, pixelIteri] = colorNum;
-                        //Console.WriteLine(colorNum);
-                        colHandler.ColorCodeReturn(colorNum);
-                    }
+                    tileHandler.LevelTileChecker(tiles[tilesFinishedj, tilesFinishedi], pixelIterj, pixelIteri);
 
                     if (j == levelPixelsNum - 1)
                     {
@@ -112,7 +86,7 @@ namespace PressmanM_HW1
             int cursorUpPos = Console.WindowTop + (moveSpeed * 4);
             Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
             Console.SetWindowPosition(windowLeftPos, windowUpPos);
-            if (tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
+            if (tiles[(cursorLeftPos / tileLength), (cursorUpPos / tileLength)] == 2)
             {
                 for (int i = 0; i < 5; i++)
                 {
@@ -125,7 +99,7 @@ namespace PressmanM_HW1
                 }
                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
             }
-            else if (tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
+            else if (tiles[(cursorLeftPos / tileLength), (cursorUpPos / tileLength)] == 12)
             {
                 for (int i = 0; i < 5; i++)
                 {
@@ -133,6 +107,19 @@ namespace PressmanM_HW1
                     {
                         Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
                         colorNum = Pixel.ColorCheck(tile.GetPixel(j, i));
+                        colHandler.ColorCodeReturn(colorNum);
+                    }
+                }
+                Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+            }
+            else if (tiles[(cursorLeftPos / tileLength), (cursorUpPos / tileLength)] == 9)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                        colorNum = Pixel.ColorCheck(houseRoof.GetPixel(j, i));
                         colHandler.ColorCodeReturn(colorNum);
                     }
                 }

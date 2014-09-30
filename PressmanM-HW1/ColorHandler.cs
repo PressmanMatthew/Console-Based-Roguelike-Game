@@ -228,7 +228,7 @@ namespace PressmanM_HW1
             }
             else
             {
-                return 0; // Returns the default for none
+                return 12; // Returns the default for none
             }
         }
 

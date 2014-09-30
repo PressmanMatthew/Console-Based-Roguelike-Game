@@ -17,7 +17,7 @@ namespace PressmanM_HW1
         private const int tileLength = 5;
         private Color pixel;
         private int colorNum;
-        private int[,] pixelNums = new int[tileLength - 1, tileLength - 1];
+        private int[,] pixelNums = new int[tileLength, tileLength];
 
         public Tile()
         {
@@ -29,12 +29,12 @@ namespace PressmanM_HW1
             fullPath = directoryPath + tileFile;
             pixelMap = new Bitmap(fullPath);
 
-            for (int i = 0; i < tileLength - 1; i++)
+            for (int i = 0; i < tileLength; i++)
             {
-                for (int j = 0; i < tileLength - 1; i++)
+                for (int j = 0; j < tileLength; j++)
                 {
                     pixel = pixelMap.GetPixel(j, i);
-                    colorNum = Pixel.ColorCheck(pixel);
+                    colorNum = colHandler.ColorCheck(pixel);
 
                     pixelNums[j, i] = colorNum;
                 }
@@ -46,12 +46,12 @@ namespace PressmanM_HW1
             fullPath = directoryPath + this.tileFile;
             pixelMap = new Bitmap(fullPath);
 
-            for (int i = 0; i < tileLength - 1; i++)
+            for (int i = 0; i < tileLength; i++)
             {
-                for (int j = 0; i < tileLength - 1; i++)
+                for (int j = 0; j < tileLength; j++)
                 {
                     pixel = pixelMap.GetPixel(j, i);
-                    colorNum = Pixel.ColorCheck(pixel);
+                    colorNum = colHandler.ColorCheck(pixel);
 
                     pixelNums[j, i] = colorNum;
                 }

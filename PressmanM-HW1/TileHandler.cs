@@ -69,5 +69,53 @@ namespace PressmanM_HW1
                     break;
             }
         }
+
+        public void ReplaceTile(int windowLeftPos, int windowUpPos, int moveSpeed)
+        {
+            int cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
+            int cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+            Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+            Console.SetWindowPosition(windowLeftPos, windowUpPos);
+            int tileLength = grass.GetTileLength();
+            if (OutsideLevel.GetTileNum((cursorLeftPos / tileLength), (cursorUpPos / tileLength)) == 2)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                        colorNum = colHandler.ColorCheck(pond.GetPixel(j, i));
+                        colHandler.ColorCodeReturn(colorNum);
+                    }
+                }
+                Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+            }
+            else if (OutsideLevel.GetTileNum((cursorLeftPos / tileLength), (cursorUpPos / tileLength)) == 12)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                        colorNum = colHandler.ColorCheck(grass.GetPixel(j, i));
+                        colHandler.ColorCodeReturn(colorNum);
+                    }
+                }
+                Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+            }
+            else if (OutsideLevel.GetTileNum((cursorLeftPos / tileLength), (cursorUpPos / tileLength)) == 9)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                        colorNum = colHandler.ColorCheck(houseRoof.GetPixel(j, i));
+                        colHandler.ColorCodeReturn(colorNum);
+                    }
+                }
+                Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+            }
+        }
     }
 }

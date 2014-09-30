@@ -62,6 +62,7 @@
     <Compile Include="HouseRoofTile.cs" />
     <Compile Include="InsideLevel.cs" />
     <Compile Include="MagentaPixel.cs" />
+    <Compile Include="MovementHandler.cs" />
     <Compile Include="OutsideLevel.cs" />
     <Compile Include="Pixel.cs" />
     <Compile Include="PondTile.cs" />

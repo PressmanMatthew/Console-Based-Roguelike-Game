@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace PressmanM_HW1
 {
-    class GrassTile : Tile
+    class ClearPixel : Pixel
     {
-        public GrassTile()
+        public ClearPixel()
         {
-            this.tileFile = "grasstile.png";
-            this.ParseBitmap();
+            this.colorNum = 0;
         }
     }
 }

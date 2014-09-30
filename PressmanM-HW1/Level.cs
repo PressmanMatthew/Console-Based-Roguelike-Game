@@ -11,21 +11,29 @@ namespace PressmanM_HW1
     {
         String directoryPath = Environment.CurrentDirectory + @"\..\..\levels\";
         String fullPath;
+        protected string levelFile { get; set;}
         Bitmap tileMap;
-        static Tile tile = new Tile("grasstile.png");
+        //static Tile tile = new Tile("grasstile.png");
         static GrassTile grass = new GrassTile();
         static Tile pondTile = new Tile("pondtile.png");
-        static int tileLength =  tile.GetTileLength();
+        ColorHandler colHandler = new ColorHandler();
+        TileHandler tileHandler = new TileHandler();
+        static int tileLength = grass.GetTileLength();
+        static int levelSize = 50; // should match the number of pixels in the level file and be divisible by 5
         Color pixel;
-        const int levelSize = 50;
         int colorNum;
         int levelPixelsNum = (levelSize * tileLength);
         Color[,] pixels = new Color[tileLength, tileLength];
-        public int[,] tiles = new int[levelSize, levelSize];
+        public static int[,] tiles = new int[levelSize, levelSize];
         int[,] grassPixels = new int[tileLength, tileLength];
         int[,] pondPixels = new int[tileLength, tileLength];
 
-        public Level(String levelFile)
+        public Level()
+        {
+
+        }
+
+        public void ParseBitmap()
         {
             fullPath = directoryPath + levelFile;
             tileMap = new Bitmap(fullPath);
@@ -34,104 +42,49 @@ namespace PressmanM_HW1
             {
                 for (int j = 0; j < levelSize - 1; j++)
                 {
-                    pixel = tileMap.GetPixel(i, j);
-                    colorNum = Pixel.ColorCheck(pixel);
+                    pixel = tileMap.GetPixel(j, i);
+                    colorNum = colHandler.ColorCheck(pixel);
 
-                    tiles[i, j] = colorNum;
+                    tiles[j, i] = colorNum;
                 }
             }
-
-            //for (int i = 0; i < tileLength - 1; i++)
-            //{
-            //    for (int j = 0; j < tileLength - 1; j++)
-            //    {
-            //        grassPixels[i, j] = tile.GetPixel(i, j);
-            //        pondPixels[i, j] = pondTile.GetPixel(i, j);
-            //    }
-            //}
         }
 
         public void CreateLevel()
         {
+            int orgCursorLeftPos = Console.CursorLeft;
+            int orgCursorUpPos = Console.CursorTop;
             for (int i = 0; i < levelPixelsNum; i++)
             {
                 for (int j = 0; j < levelPixelsNum; j++)
                 {
-                    int tilesFinishedi = i / 5;
-                    int pixelIteri = i - (tilesFinishedi * 5);
-                    int tilesFinishedj = j / 5;
-                    int pixelIterj = j - (tilesFinishedj * 5);
+                    int tilesFinishedi = i / tileLength;
+                    int pixelIteri = i - (tilesFinishedi * tileLength);
+                    int tilesFinishedj = j / tileLength;
+                    int pixelIterj = j - (tilesFinishedj * tileLength);
+                    int cursorLeftPos = orgCursorLeftPos + j;
+                    int cursorUpPos = orgCursorUpPos + i;
+                    //Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
 
-                    
-
-                    if (Pixel.GreenColorCheck(tiles[tilesFinishedj, tilesFinishedi]))
-                    {
-                        //Console.WriteLine(tiles[tilesFinishedj, tilesFinishedi]);
-                        pixel = tile.GetPixel(pixelIterj, pixelIteri);
-                        pixels[pixelIterj, pixelIteri] = pixel;
-                        colorNum = Pixel.ColorCheck(pixel);
-                        grassPixels[pixelIterj, pixelIteri] = colorNum;
-                        //Console.WriteLine(colorNum);
-                        Pixel.ColorCodeReturn(colorNum);
-                        //grass.CreateGrassTile();
-                        //pixel = tile.GetPixel(pixelIterj, tilesFinishedi);
-                        //colorNum = Pixel.ColorCheck(pixel);
-                        //Pixel.ColorCodeReturn(colorNum);
-                        //for (int x = 0; x < tileLength; x++)
-                        //{
-                        //    Pixel.ColorCodeReturn(grassTile.GetPixel(x, pixelIteri));
-                        //}
-                    }
-                    else if (Pixel.BlueColorCheck(tiles[tilesFinishedj, tilesFinishedi]))
-                    {
-                        pixel = pondTile.GetPixel(pixelIterj, pixelIteri);
-                        pixels[pixelIterj, pixelIteri] = pixel;
-                        colorNum = Pixel.ColorCheck(pixel);
-                        pondPixels[pixelIterj, pixelIteri] = colorNum;
-                        //Console.WriteLine(colorNum);
-                        Pixel.ColorCodeReturn(colorNum);
-                    }
+                    tileHandler.LevelTileChecker(tiles[tilesFinishedj, tilesFinishedi], pixelIterj, pixelIteri);
 
                     if (j == levelPixelsNum - 1)
                     {
-                        Pixel.NextLine();
+                        Console.WriteLine();
                     }
                 }
             }
         }
 
-        public void ReplaceTile(int windowLeftPos, int windowUpPos, int moveSpeed)
+        public static int GetTileNum(int x, int y)
         {
-            int cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
-            int cursorUpPos = Console.WindowTop + (moveSpeed * 4);
-            Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-            Console.SetWindowPosition(windowLeftPos, windowUpPos);
-            if (tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    for (int j = 0; j < 5; j++)
-                    {
-                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
-                        colorNum = Pixel.ColorCheck(pondTile.GetPixel(j, i));
-                        Pixel.ColorCodeReturn(colorNum);
-                    }
-                }
-                Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-            }
-            else if (tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    for (int j = 0; j < 5; j++)
-                    {
-                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
-                        colorNum = Pixel.ColorCheck(tile.GetPixel(j, i));
-                        Pixel.ColorCodeReturn(colorNum);
-                    }
-                }
-                Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-            }
+            return tiles[x, y];
+        }
+
+        public void ClearScreen()
+        {
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.Clear();
         }
     }
 }

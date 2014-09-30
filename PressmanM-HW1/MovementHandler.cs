@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace PressmanM_HW1
 {
-    class GrassTile : Tile
+    class MovementHandler
     {
-        public GrassTile()
-        {
-            this.tileFile = "grasstile.png";
-            this.ParseBitmap();
-        }
+
+
+
     }
 }

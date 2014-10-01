@@ -12,7 +12,6 @@ namespace PressmanM_HW1
         String directoryPath = Environment.CurrentDirectory + @"\..\..\levels\";
         String fullPath;
         Bitmap tileMap;
-        //static Tile tile = new Tile("grasstile.png");
         static GrassTile grass = new GrassTile();
         HouseRoofTile houseRoof = new HouseRoofTile();
         static Tile pondTile = new Tile("pondtile.png");

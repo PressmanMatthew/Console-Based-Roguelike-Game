@@ -19,14 +19,16 @@ namespace PressmanM_HW1
         ColorHandler colHandler = new ColorHandler();
         TileHandler tileHandler = new TileHandler();
         static int tileLength = grass.GetTileLength();
+        static int tileHeight = grass.GetTileHeight();
         static int levelSize = 50; // should match the number of pixels in the level file and be divisible by 5
         Color pixel;
         int colorNum;
-        int levelPixelsNum = (levelSize * tileLength);
-        Color[,] pixels = new Color[tileLength, tileLength];
+        int levelVertPixelsNum = (levelSize * tileHeight);
+        int levelHorPixelsNum = (levelSize * tileLength);
+        Color[,] pixels = new Color[tileLength, tileHeight];
         public static int[,] tiles = new int[levelSize, levelSize];
-        int[,] grassPixels = new int[tileLength, tileLength];
-        int[,] pondPixels = new int[tileLength, tileLength];
+        int[,] grassPixels = new int[tileLength, tileHeight];
+        int[,] pondPixels = new int[tileLength, tileHeight];
 
         public Level()
         {
@@ -54,12 +56,12 @@ namespace PressmanM_HW1
         {
             int orgCursorLeftPos = Console.CursorLeft;
             int orgCursorUpPos = Console.CursorTop;
-            for (int i = 0; i < levelPixelsNum; i++)
+            for (int i = 0; i < levelVertPixelsNum; i++)
             {
-                for (int j = 0; j < levelPixelsNum; j++)
+                for (int j = 0; j < levelHorPixelsNum; j++)
                 {
-                    int tilesFinishedi = i / tileLength;
-                    int pixelIteri = i - (tilesFinishedi * tileLength);
+                    int tilesFinishedi = i / tileHeight;
+                    int pixelIteri = i - (tilesFinishedi * tileHeight);
                     int tilesFinishedj = j / tileLength;
                     int pixelIterj = j - (tilesFinishedj * tileLength);
                     int cursorLeftPos = orgCursorLeftPos + j;
@@ -68,7 +70,7 @@ namespace PressmanM_HW1
 
                     tileHandler.LevelTileChecker(tiles[tilesFinishedj, tilesFinishedi], pixelIterj, pixelIteri);
 
-                    if (j == levelPixelsNum - 1)
+                    if (j == levelHorPixelsNum - 1)
                     {
                         Console.WriteLine();
                     }

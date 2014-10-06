@@ -94,3 +94,13 @@ E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\Press
 E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.application
 E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.exe.manifest
 E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.application
+C:\Users\Matthew\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.exe.config
+C:\Users\Matthew\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.exe
+C:\Users\Matthew\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.pdb
+C:\Users\Matthew\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.exe.manifest
+C:\Users\Matthew\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.application
+C:\Users\Matthew\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.exe
+C:\Users\Matthew\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.pdb
+C:\Users\Matthew\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.csprojResolveAssemblyReference.cache
+C:\Users\Matthew\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.exe.manifest
+C:\Users\Matthew\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.application

@@ -273,7 +273,7 @@ namespace PressmanM_HW1
                             for (int i = 0; i < attackRange; i++)
                             {
                                 //move the cursor to the next tile to draw on
-                                cursorUpPos = Console.WindowTop + charPixelPositionUp + ((i + 1) * tileHeight) + 1;
+                                cursorUpPos = Console.WindowTop + charPixelPositionUp + ((i + 1) * tileHeight) + innerTileBorder;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
 
                                 for (int j = 0; j < (innerTileBorder * 2); j++)
@@ -292,15 +292,15 @@ namespace PressmanM_HW1
                                     {
                                         if (OutsideLevel.tiles[(cursorLeftPos / tileHeight), (cursorUpPos / tileHeight)] == 2)
                                         {
-                                            colorNum = colHandler.ColorCheck(pond.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(pond.GetPixel(k + innerTileBorder, j + innerTileBorder));
                                         }
                                         else if (OutsideLevel.tiles[(cursorLeftPos / tileHeight), (cursorUpPos / tileHeight)] == 12)
                                         {
-                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + innerTileBorder, j + innerTileBorder));
                                         }
                                         else
                                         {
-                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + innerTileBorder, j + innerTileBorder));
                                         }
                                         colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, colorNum);
                                     }
@@ -319,7 +319,7 @@ namespace PressmanM_HW1
                             for (int i = 0; i < attackRange; i++)
                             {
                                 //move the cursor to the next tile to draw on
-                                cursorLeftPos = Console.WindowLeft + charPixelPositionLeft - ((i + 1) * tileLength) + 1;
+                                cursorLeftPos = Console.WindowLeft + charPixelPositionLeft - ((i + 1) * tileLength) + innerTileBorder;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
 
                                 for (int j = 0; j < (innerTileBorder * 2); j++)
@@ -338,15 +338,15 @@ namespace PressmanM_HW1
                                     {
                                         if (OutsideLevel.tiles[(cursorLeftPos / tileLength), (cursorUpPos / tileLength)] == 2)
                                         {
-                                            colorNum = colHandler.ColorCheck(pond.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(pond.GetPixel(k + innerTileBorder, j + innerTileBorder));
                                         }
                                         else if (OutsideLevel.tiles[(cursorLeftPos / tileLength), (cursorUpPos / tileLength)] == 12)
                                         {
-                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + innerTileBorder, j + innerTileBorder));
                                         }
                                         else
                                         {
-                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + innerTileBorder, j + innerTileBorder));
                                         }
                                         colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, colorNum);
                                     }
@@ -365,7 +365,7 @@ namespace PressmanM_HW1
                             for (int i = 0; i < attackRange; i++)
                             {
                                 //move the cursor to the next tile to draw on
-                                cursorLeftPos = Console.WindowLeft + charPixelPositionLeft + ((i + 1) * tileLength) + 1;
+                                cursorLeftPos = Console.WindowLeft + charPixelPositionLeft + ((i + 1) * tileLength) + innerTileBorder;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
 
                                 for (int j = 0; j < (innerTileBorder * 2); j++)
@@ -384,15 +384,15 @@ namespace PressmanM_HW1
                                     {
                                         if (OutsideLevel.tiles[(cursorLeftPos / tileLength), (cursorUpPos / tileLength)] == 2)
                                         {
-                                            colorNum = colHandler.ColorCheck(pond.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(pond.GetPixel(k + innerTileBorder, j + innerTileBorder));
                                         }
                                         else if (OutsideLevel.tiles[(cursorLeftPos / tileLength), (cursorUpPos / tileLength)] == 12)
                                         {
-                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + innerTileBorder, j + innerTileBorder));
                                         }
                                         else
                                         {
-                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + innerTileBorder, j + innerTileBorder));
                                         }
                                         colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, colorNum);
                                     }

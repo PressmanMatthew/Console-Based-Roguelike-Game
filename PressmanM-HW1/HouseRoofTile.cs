@@ -10,7 +10,9 @@ namespace PressmanM_HW1
     {
         public HouseRoofTile()
         {
-            this.tileFile = "houserooftile.png";
+            this.tileFile = "HouseRoofTile10x10.png";
+            //this.tileFile = "HouseRoofTile10x5.png";
+            //this.tileFile = "houserooftile.png";
             this.ParseBitmap();
         }
 

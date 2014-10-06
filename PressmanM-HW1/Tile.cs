@@ -14,8 +14,8 @@ namespace PressmanM_HW1
         private string directoryPath = Environment.CurrentDirectory + @"\..\..\tiles\";
         private string fullPath;
         private ColorHandler colHandler = new ColorHandler();
-        private const int tileHeight = 5;
-        private const int tileLength = 5;
+        private const int tileHeight = 10;
+        private const int tileLength = 10;
         private Color pixel;
         private int colorNum;
         private int[,] pixelNums = new int[tileLength, tileHeight];

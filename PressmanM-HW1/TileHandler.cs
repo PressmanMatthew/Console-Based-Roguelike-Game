@@ -72,16 +72,17 @@ namespace PressmanM_HW1
 
         public void ReplaceTile(int windowLeftPos, int windowUpPos, int moveSpeed)
         {
-            int cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
-            int cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+            int cursorLeftPos = Console.WindowLeft + 20 + 20;
+            int cursorUpPos = Console.WindowTop + 20;
             Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
             Console.SetWindowPosition(windowLeftPos, windowUpPos);
+            int tileHeight = grass.GetTileHeight();
             int tileLength = grass.GetTileLength();
-            if (OutsideLevel.GetTileNum((cursorLeftPos / tileLength), (cursorUpPos / tileLength)) == 2)
+            if (OutsideLevel.GetTileNum((cursorLeftPos / tileLength), (cursorUpPos / tileHeight)) == 2)
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < tileHeight; i++)
                 {
-                    for (int j = 0; j < 5; j++)
+                    for (int j = 0; j < tileLength; j++)
                     {
                         Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
                         colorNum = colHandler.ColorCheck(pond.GetPixel(j, i));
@@ -90,11 +91,11 @@ namespace PressmanM_HW1
                 }
                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
             }
-            else if (OutsideLevel.GetTileNum((cursorLeftPos / tileLength), (cursorUpPos / tileLength)) == 12)
+            else if (OutsideLevel.GetTileNum((cursorLeftPos / tileLength), (cursorUpPos / tileHeight)) == 12)
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < tileHeight; i++)
                 {
-                    for (int j = 0; j < 5; j++)
+                    for (int j = 0; j < tileLength; j++)
                     {
                         Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
                         colorNum = colHandler.ColorCheck(grass.GetPixel(j, i));
@@ -103,11 +104,60 @@ namespace PressmanM_HW1
                 }
                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
             }
-            else if (OutsideLevel.GetTileNum((cursorLeftPos / tileLength), (cursorUpPos / tileLength)) == 9)
+            else if (OutsideLevel.GetTileNum((cursorLeftPos / tileLength), (cursorUpPos / tileHeight)) == 9)
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < tileHeight; i++)
                 {
-                    for (int j = 0; j < 5; j++)
+                    for (int j = 0; j < tileLength; j++)
+                    {
+                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                        colorNum = colHandler.ColorCheck(houseRoof.GetPixel(j, i));
+                        colHandler.ColorCodeReturn(colorNum);
+                    }
+                }
+                Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+            }
+        }
+
+        public void ReplaceTile(int windowLeftPos, int windowUpPos, int moveSpeed, int charPixelPositionLeft, int charPixelPositionUp)
+        {
+            int cursorLeftPos = Console.WindowLeft + charPixelPositionLeft;
+            int cursorUpPos = Console.WindowTop + charPixelPositionUp;
+            Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+            Console.SetWindowPosition(windowLeftPos, windowUpPos);
+            int tileHeight = grass.GetTileHeight();
+            int tileLength = grass.GetTileLength();
+            if (OutsideLevel.GetTileNum((cursorLeftPos / tileLength), (cursorUpPos / tileHeight)) == 2)
+            {
+                for (int i = 0; i < tileHeight; i++)
+                {
+                    for (int j = 0; j < tileLength; j++)
+                    {
+                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                        colorNum = colHandler.ColorCheck(pond.GetPixel(j, i));
+                        colHandler.ColorCodeReturn(colorNum);
+                    }
+                }
+                Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+            }
+            else if (OutsideLevel.GetTileNum((cursorLeftPos / tileLength), (cursorUpPos / tileHeight)) == 12)
+            {
+                for (int i = 0; i < tileHeight; i++)
+                {
+                    for (int j = 0; j < tileLength; j++)
+                    {
+                        Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
+                        colorNum = colHandler.ColorCheck(grass.GetPixel(j, i));
+                        colHandler.ColorCodeReturn(colorNum);
+                    }
+                }
+                Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+            }
+            else if (OutsideLevel.GetTileNum((cursorLeftPos / tileLength), (cursorUpPos / tileHeight)) == 9)
+            {
+                for (int i = 0; i < tileHeight; i++)
+                {
+                    for (int j = 0; j < tileLength; j++)
                     {
                         Console.SetCursorPosition(cursorLeftPos + j, cursorUpPos + i);
                         colorNum = colHandler.ColorCheck(houseRoof.GetPixel(j, i));

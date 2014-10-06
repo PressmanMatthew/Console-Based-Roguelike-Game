@@ -18,18 +18,31 @@ namespace PressmanM_HW1
             const int stepsNeeded = 16;
             int stepsTaken = 0;
             OutsideLevel outsidelvl = new OutsideLevel();
-            Tile grassTile = new Tile("grasstile.png");
-            Tile pondTile = new Tile("pondtile.png");
+            GrassTile grass = new GrassTile();
+            PondTile pond = new PondTile();
+            int tileLength = grass.GetTileLength();
+            int tileHeight = grass.GetTileHeight();
             TileHandler tileHandler = new TileHandler();
             ColorHandler colHandler = new ColorHandler();
             int originalBufferWidth = Console.BufferWidth;
             int originalBufferHeight = Console.BufferHeight;
             int attackSpeed = 250;
+            int attackRange = 3;
+            int innerTileBorder = tileHeight / 5;
             int windowPositionLeft = 100;
             int windowPositionUp = 100;
-            int bufferAdd = 200;
-            int moveSpeed = 5;
-            int highBound = 205;
+            int bufferAdd = 440;
+            int windowHeight = 70;
+            int windowLength = 130;
+            int windowTileNumWidth = windowLength / 10;
+            int windowTileNumHeight = windowHeight / 10;
+            int charTilePositionLeft = windowTileNumWidth / 2;
+            int charTilePositionUp = windowTileNumHeight / 2;
+            int charPixelPositionLeft = charTilePositionLeft * 10;
+            int charPixelPositionUp = charTilePositionUp * 10;
+            int horMoveSpeed = tileLength;
+            int vertMoveSpeed = tileHeight;
+            int highBound = bufferAdd + tileLength;
             int lowBound = 0;
             int originalCursorLeftPos;
             int originalCursorUpPos;
@@ -47,25 +60,25 @@ namespace PressmanM_HW1
             Console.BufferHeight += bufferAdd;
             Console.BufferWidth += bufferAdd;
 
+            Console.SetWindowSize(windowLength, windowHeight);
 
             outsidelvl.CreateLevel();
 
             //Aesthetic changes before play can begin
-            Console.SetWindowSize(84, 42);
             Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
             originalCursorLeftPos = Console.CursorLeft;
             originalCursorUpPos = Console.CursorTop;
             Console.CursorVisible = false;
 
             //Change cursor position to the top left pixel of the characters position
-            cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
-            cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+            cursorLeftPos = Console.WindowLeft + charPixelPositionLeft;
+            cursorUpPos = Console.WindowTop + charPixelPositionUp;
             Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
 
             //Draw the character
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < tileHeight; i++)
             {
-                for (int j = 0; j < 5; j++)
+                for (int j = 0; j < tileLength; j++)
                 {
                     colHandler.ColorCodeReturn(cursorLeftPos + j, cursorUpPos + i, 1);
                 }
@@ -77,8 +90,8 @@ namespace PressmanM_HW1
                 ConsoleKeyInfo inputKey = Console.ReadKey(true); //Take in any key pressed to inputKey
 
                 //Change cursor position to the top left pixel of the characters position
-                cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
-                cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+                cursorLeftPos = Console.WindowLeft + charPixelPositionLeft;
+                cursorUpPos = Console.WindowTop + charPixelPositionUp;
                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
 
                 //Detect if movement is being attempted
@@ -88,95 +101,95 @@ namespace PressmanM_HW1
                     switch (inputKey.Key)
                     {
                         case ConsoleKey.A:
-                            if ((windowPositionLeft - (moveSpeed)) < lowBound)
+                            if ((windowPositionLeft - (horMoveSpeed)) < lowBound)
                             {
 
                             }
                             else
                             {
-                                tileHandler.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
-                                cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4) - 5;
-                                cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+                                tileHandler.ReplaceTile(windowPositionLeft, windowPositionUp, horMoveSpeed, charPixelPositionLeft, charPixelPositionUp);
+                                cursorLeftPos = Console.WindowLeft + charPixelPositionLeft - tileLength;
+                                cursorUpPos = Console.WindowTop + charPixelPositionUp;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-                                for (int i = 0; i < 5; i++)
+                                for (int i = 0; i < tileHeight; i++)
                                 {
-                                    for (int j = 0; j < 5; j++)
+                                    for (int j = 0; j < tileLength; j++)
                                     {
                                         colHandler.ColorCodeReturn(cursorLeftPos + j, cursorUpPos + i, 1);
                                     }
                                 }
                                 Thread.Sleep(100);
-                                windowPositionLeft -= moveSpeed;
+                                windowPositionLeft -= horMoveSpeed;
                                 Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                             }
                             break;
                         case ConsoleKey.D:
-                            if ((windowPositionLeft + (moveSpeed)) > highBound - 45)
+                            if ((windowPositionLeft + (horMoveSpeed)) > highBound - 45)
                             {
 
                             }
                             else
                             {
-                                tileHandler.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
+                                tileHandler.ReplaceTile(windowPositionLeft, windowPositionUp, horMoveSpeed, charPixelPositionLeft, charPixelPositionUp);
                                 Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
-                                cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4) + 5;
-                                cursorUpPos = Console.WindowTop + (moveSpeed * 4);
+                                cursorLeftPos = Console.WindowLeft + charPixelPositionLeft + horMoveSpeed;
+                                cursorUpPos = Console.WindowTop + charPixelPositionUp;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-                                for (int i = 0; i < 5; i++)
+                                for (int i = 0; i < tileHeight; i++)
                                 {
-                                    for (int j = 0; j < 5; j++)
+                                    for (int j = 0; j < tileLength; j++)
                                     {
                                         colHandler.ColorCodeReturn(cursorLeftPos + j, cursorUpPos + i, 1);
                                     }
                                 }
                                 Thread.Sleep(100);
-                                windowPositionLeft += moveSpeed;
+                                windowPositionLeft += horMoveSpeed;
                                 Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                             }
                             break;
                         case ConsoleKey.W:
-                            if ((windowPositionUp - (moveSpeed * 2)) < lowBound)
+                            if ((windowPositionUp - (vertMoveSpeed * 2)) < lowBound)
                             {
 
                             }
                             else
                             {
-                                tileHandler.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
-                                cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
-                                cursorUpPos = Console.WindowTop + (moveSpeed * 4) - 5;
+                                tileHandler.ReplaceTile(windowPositionLeft, windowPositionUp, vertMoveSpeed, charPixelPositionLeft, charPixelPositionUp);
+                                cursorLeftPos = Console.WindowLeft + charPixelPositionLeft;
+                                cursorUpPos = Console.WindowTop + charPixelPositionUp - tileHeight;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-                                for (int i = 0; i < 5; i++)
+                                for (int i = 0; i < tileHeight; i++)
                                 {
-                                    for (int j = 0; j < 5; j++)
+                                    for (int j = 0; j < tileLength; j++)
                                     {
                                         colHandler.ColorCodeReturn(cursorLeftPos + j, cursorUpPos + i, 1);
                                     }
                                 }
                                 Thread.Sleep(100);
-                                windowPositionUp -= moveSpeed;
+                                windowPositionUp -= vertMoveSpeed;
                                 Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                             }
                             break;
                         case ConsoleKey.S:
-                            if ((windowPositionUp + (moveSpeed * 2)) > highBound)
+                            if ((windowPositionUp + (vertMoveSpeed * 2)) > highBound)
                             {
 
                             }
                             else
                             {
-                                tileHandler.ReplaceTile(windowPositionLeft, windowPositionUp, moveSpeed);
-                                cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4);
-                                cursorUpPos = Console.WindowTop + (moveSpeed * 4) + 5;
+                                tileHandler.ReplaceTile(windowPositionLeft, windowPositionUp, vertMoveSpeed, charPixelPositionLeft, charPixelPositionUp);
+                                cursorLeftPos = Console.WindowLeft + charPixelPositionLeft;
+                                cursorUpPos = Console.WindowTop + charPixelPositionLeft + tileHeight;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
-                                for (int i = 0; i < 5; i++)
+                                for (int i = 0; i < tileHeight; i++)
                                 {
-                                    for (int j = 0; j < 5; j++)
+                                    for (int j = 0; j < tileLength; j++)
                                     {
                                         colHandler.ColorCodeReturn(cursorLeftPos + j, cursorUpPos + i, 1);
                                     }
                                 }
                                 Thread.Sleep(100);
-                                windowPositionUp += moveSpeed;
+                                windowPositionUp += vertMoveSpeed;
                                 Console.SetWindowPosition(windowPositionLeft, windowPositionUp);
                             }
                             break;
@@ -202,20 +215,20 @@ namespace PressmanM_HW1
                         case ConsoleKey.UpArrow:
 
                             //Change the cursor position to get ready to draw an attack
-                            cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4) + 1;
-                            cursorUpPos = Console.WindowTop + (moveSpeed * 4) - 5 + 1;
+                            cursorLeftPos = Console.WindowLeft + charPixelPositionLeft + innerTileBorder;
+                            cursorUpPos = Console.WindowTop + charPixelPositionUp - tileHeight + innerTileBorder;
                             Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
 
                             //iterate through drawing the attack and then drawing over the previous attack
-                            for (int i = 0; i < 3; i++)
+                            for (int i = 0; i < attackRange; i++)
                             {
                                 //move the cursor to the next tile to draw on
-                                cursorUpPos = Console.WindowTop + (moveSpeed * 4) - ((i + 1) * 5) + 1;
+                                cursorUpPos = Console.WindowTop + charPixelPositionUp - ((i + 1) * tileHeight) + innerTileBorder;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
 
-                                for (int j = 0; j < 2; j++)
+                                for (int j = 0; j < (innerTileBorder * 2); j++)
                                 {
-                                    for (int k = 0; k < 3; k++)
+                                    for (int k = 0; k < (innerTileBorder * 3); k++)
                                     {
                                         colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, 13);
                                     }
@@ -223,21 +236,25 @@ namespace PressmanM_HW1
 
                                 Thread.Sleep(attackSpeed);
 
-                                for (int j = 0; j < 2; j++)
+                                //cursorLeftPos = Console.WindowLeft + charPixelPositionLeft;
+                                //cursorUpPos = Console.WindowTop + charPixelPositionLeft + tileHeight;
+                                //Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
+                                //tileHandler.ReplaceTile(windowPositionLeft, windowPositionUp, vertMoveSpeed, charPixelPositionLeft, charPixelPositionUp - ((10 * (i + 1)) + innerTileBorder - 1));
+                                for (int j = 0; j < (innerTileBorder * 2); j++)
                                 {
-                                    for (int k = 0; k < 3; k++)
+                                    for (int k = 0; k < (innerTileBorder * 3); k++)
                                     {
-                                        if (OutsideLevel.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
+                                        if (OutsideLevel.tiles[(cursorLeftPos / tileHeight), (cursorUpPos / tileHeight)] == 2)
                                         {
-                                            colorNum = colHandler.ColorCheck(pondTile.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(pond.GetPixel(k + innerTileBorder, j + innerTileBorder));
                                         }
-                                        else if (OutsideLevel.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
+                                        else if (OutsideLevel.tiles[(cursorLeftPos / tileHeight), (cursorUpPos / tileHeight)] == 12)
                                         {
-                                            colorNum = colHandler.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + innerTileBorder, j + innerTileBorder));
                                         }
                                         else
                                         {
-                                            colorNum = colHandler.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + innerTileBorder, j + innerTileBorder));
                                         }
                                         colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, colorNum);
                                     }
@@ -248,20 +265,20 @@ namespace PressmanM_HW1
                         case ConsoleKey.DownArrow:
 
                             //Change the cursor position to get ready to draw an attack
-                            cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4) + 1;
-                            cursorUpPos = Console.WindowTop + (moveSpeed * 4) + 5 + 1;
+                            cursorLeftPos = Console.WindowLeft + charPixelPositionLeft + innerTileBorder;
+                            cursorUpPos = Console.WindowTop + charPixelPositionUp + tileHeight + innerTileBorder;
                             Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
 
                             //iterate through drawing the attack and then drawing over the previous attack
-                            for (int i = 0; i < 3; i++)
+                            for (int i = 0; i < attackRange; i++)
                             {
                                 //move the cursor to the next tile to draw on
-                                cursorUpPos = Console.WindowTop + (moveSpeed * 4) + ((i + 1) * 5) + 1;
+                                cursorUpPos = Console.WindowTop + charPixelPositionUp + ((i + 1) * tileHeight) + 1;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
 
-                                for (int j = 0; j < 2; j++)
+                                for (int j = 0; j < (innerTileBorder * 2); j++)
                                 {
-                                    for (int k = 0; k < 3; k++)
+                                    for (int k = 0; k < (innerTileBorder * 3); k++)
                                     {
                                         colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, 13);
                                     }
@@ -269,21 +286,21 @@ namespace PressmanM_HW1
 
                                 Thread.Sleep(attackSpeed);
 
-                                for (int j = 0; j < 2; j++)
+                                for (int j = 0; j < (innerTileBorder * 2); j++)
                                 {
-                                    for (int k = 0; k < 3; k++)
+                                    for (int k = 0; k < (innerTileBorder * 3); k++)
                                     {
-                                        if (OutsideLevel.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
+                                        if (OutsideLevel.tiles[(cursorLeftPos / tileHeight), (cursorUpPos / tileHeight)] == 2)
                                         {
-                                            colorNum = colHandler.ColorCheck(pondTile.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(pond.GetPixel(k + 1, j + 1));
                                         }
-                                        else if (OutsideLevel.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
+                                        else if (OutsideLevel.tiles[(cursorLeftPos / tileHeight), (cursorUpPos / tileHeight)] == 12)
                                         {
-                                            colorNum = colHandler.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + 1, j + 1));
                                         }
                                         else
                                         {
-                                            colorNum = colHandler.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + 1, j + 1));
                                         }
                                         colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, colorNum);
                                     }
@@ -294,20 +311,20 @@ namespace PressmanM_HW1
                         case ConsoleKey.LeftArrow:
 
                             //Change the cursor position to get ready to draw an attack
-                            cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4) - 5 + 1;
-                            cursorUpPos = Console.WindowTop + (moveSpeed * 4) + 1;
+                            cursorLeftPos = Console.WindowLeft + charPixelPositionLeft - tileLength + innerTileBorder;
+                            cursorUpPos = Console.WindowTop + charPixelPositionUp + innerTileBorder;
                             Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
 
                             //iterate through drawing the attack and then drawing over the previous attack
-                            for (int i = 0; i < 3; i++)
+                            for (int i = 0; i < attackRange; i++)
                             {
                                 //move the cursor to the next tile to draw on
-                                cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4) - ((i + 1) * 5) + 1;
+                                cursorLeftPos = Console.WindowLeft + charPixelPositionLeft - ((i + 1) * tileLength) + 1;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
 
-                                for (int j = 0; j < 2; j++)
+                                for (int j = 0; j < (innerTileBorder * 2); j++)
                                 {
-                                    for (int k = 0; k < 3; k++)
+                                    for (int k = 0; k < (innerTileBorder * 3); k++)
                                     {
                                         colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, 13);
                                     }
@@ -315,21 +332,21 @@ namespace PressmanM_HW1
 
                                 Thread.Sleep(attackSpeed);
 
-                                for (int j = 0; j < 2; j++)
+                                for (int j = 0; j < (innerTileBorder * 2); j++)
                                 {
-                                    for (int k = 0; k < 3; k++)
+                                    for (int k = 0; k < (innerTileBorder * 3); k++)
                                     {
-                                        if (OutsideLevel.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
+                                        if (OutsideLevel.tiles[(cursorLeftPos / tileLength), (cursorUpPos / tileLength)] == 2)
                                         {
-                                            colorNum = colHandler.ColorCheck(pondTile.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(pond.GetPixel(k + 1, j + 1));
                                         }
-                                        else if (OutsideLevel.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
+                                        else if (OutsideLevel.tiles[(cursorLeftPos / tileLength), (cursorUpPos / tileLength)] == 12)
                                         {
-                                            colorNum = colHandler.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + 1, j + 1));
                                         }
                                         else
                                         {
-                                            colorNum = colHandler.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + 1, j + 1));
                                         }
                                         colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, colorNum);
                                     }
@@ -340,20 +357,20 @@ namespace PressmanM_HW1
                         case ConsoleKey.RightArrow:
 
                             //Change the cursor position to get ready to draw an attack
-                            cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4) + 5 + 1;
-                            cursorUpPos = Console.WindowTop + (moveSpeed * 4) + 1;
+                            cursorLeftPos = Console.WindowLeft + charPixelPositionLeft + tileLength + innerTileBorder;
+                            cursorUpPos = Console.WindowTop + charPixelPositionUp + innerTileBorder;
                             Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
 
                             //iterate through drawing the attack and then drawing over the previous attack
-                            for (int i = 0; i < 3; i++)
+                            for (int i = 0; i < attackRange; i++)
                             {
                                 //move the cursor to the next tile to draw on
-                                cursorLeftPos = Console.WindowLeft + 20 + (moveSpeed * 4) + ((i + 1) * 5) + 1;
+                                cursorLeftPos = Console.WindowLeft + charPixelPositionLeft + ((i + 1) * tileLength) + 1;
                                 Console.SetCursorPosition(cursorLeftPos, cursorUpPos);
 
-                                for (int j = 0; j < 2; j++)
+                                for (int j = 0; j < (innerTileBorder * 2); j++)
                                 {
-                                    for (int k = 0; k < 3; k++)
+                                    for (int k = 0; k < (innerTileBorder * 3); k++)
                                     {
                                         colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, 13);
                                     }
@@ -361,21 +378,21 @@ namespace PressmanM_HW1
 
                                 Thread.Sleep(attackSpeed);
 
-                                for (int j = 0; j < 2; j++)
+                                for (int j = 0; j < (innerTileBorder * 2); j++)
                                 {
-                                    for (int k = 0; k < 3; k++)
+                                    for (int k = 0; k < (innerTileBorder * 3); k++)
                                     {
-                                        if (OutsideLevel.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 2)
+                                        if (OutsideLevel.tiles[(cursorLeftPos / tileLength), (cursorUpPos / tileLength)] == 2)
                                         {
-                                            colorNum = colHandler.ColorCheck(pondTile.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(pond.GetPixel(k + 1, j + 1));
                                         }
-                                        else if (OutsideLevel.tiles[(cursorLeftPos / 5), (cursorUpPos / 5)] == 12)
+                                        else if (OutsideLevel.tiles[(cursorLeftPos / tileLength), (cursorUpPos / tileLength)] == 12)
                                         {
-                                            colorNum = colHandler.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + 1, j + 1));
                                         }
                                         else
                                         {
-                                            colorNum = colHandler.ColorCheck(grassTile.GetPixel(k + 1, j + 1));
+                                            colorNum = colHandler.ColorCheck(grass.GetPixel(k + 1, j + 1));
                                         }
                                         colHandler.ColorCodeReturn(cursorLeftPos + k, cursorUpPos + j, colorNum);
                                     }

@@ -10,7 +10,9 @@ namespace PressmanM_HW1
     {
         public GrassTile()
         {
-            this.tileFile = "grasstile.png";
+            this.tileFile = "GrassTile10x10.png";
+            //this.tileFile = "GrassTile10x5.png";
+            //this.tileFile = "grasstile.png";
             this.ParseBitmap();
         }
     }

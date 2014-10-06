@@ -90,3 +90,7 @@ D:\Users\mrp3362\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj
 \\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.application
 \\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.exe.manifest
 \\banner.main.ad.rit.edu\students\mrp3362\IGMProfile\Documents\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.application
+E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.exe.manifest
+E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\bin\Debug\PressmanM-HW1.application
+E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.exe.manifest
+E:\Programming\GitHub\Console-Based-Roguelike-Game\PressmanM-HW1\obj\Debug\PressmanM-HW1.application

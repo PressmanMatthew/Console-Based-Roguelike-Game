@@ -15,7 +15,6 @@ namespace PressmanM_HW1
         Bitmap tileMap;
         //static Tile tile = new Tile("grasstile.png");
         static GrassTile grass = new GrassTile();
-        static Tile pondTile = new Tile("pondtile.png");
         ColorHandler colHandler = new ColorHandler();
         TileHandler tileHandler = new TileHandler();
         static int tileLength = grass.GetTileLength();
@@ -25,10 +24,7 @@ namespace PressmanM_HW1
         int colorNum;
         int levelVertPixelsNum = (levelSize * tileHeight);
         int levelHorPixelsNum = (levelSize * tileLength);
-        Color[,] pixels = new Color[tileLength, tileHeight];
         public static int[,] tiles = new int[levelSize, levelSize];
-        int[,] grassPixels = new int[tileLength, tileHeight];
-        int[,] pondPixels = new int[tileLength, tileHeight];
 
         public Level()
         {

@@ -10,7 +10,9 @@ namespace PressmanM_HW1
     {
         public PondTile()
         {
-            this.tileFile = "pondtile.png";
+            this.tileFile = "PondTile10x10.png";
+            //this.tileFile = "PondTile10x5.png";
+            //this.tileFile = "pondtile.png";
             this.ParseBitmap();
         }
 
